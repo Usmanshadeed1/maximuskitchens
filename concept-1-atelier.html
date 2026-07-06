@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maximus Kitchens | Premium Wholesale Kitchen Cabinetry — Nationwide</title>
+<meta name="description" content="Maximus Kitchens supplies premium wholesale kitchen cabinetry to contractors, builders, designers, and homeowners nationwide. 20 years of craftsmanship, free 3D layouts, and 24-hour quotes.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="sampleimages/Dover_with_Royal_Island-min.jpg" fetchpriority="high">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+<style>
+  :root{
+    --navy:#081E44;
+    --indigo:#5D66F0;
+    --warm-white:#FFF6FA;
+    --white:#ffffff;
+    --black:#0A0A0A;
+    --navy-80: rgba(8,30,68,.8);
+    --navy-40: rgba(8,30,68,.4);
+    --font-display:'Manrope', 'Inter', sans-serif;
+    --font-body:'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --ease: cubic-bezier(.16,.8,.24,1);
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--navy);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+  }
+  /* Hero/media stay full-bleed edge-to-edge; only text/content containers
+     cap at --content-max so paragraphs and cards don't stretch too wide. */
+  :root{ --content-max:1440px; }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  button{ font-family:inherit; cursor:pointer; }
+  h1,h2,h3{ font-family:var(--font-display); margin:0; font-weight:500; }
+
+  /* Skip link for accessibility */
+  .skip-link{
+    position:absolute; left:-999px; top:0; background:var(--navy); color:var(--white);
+    padding:.75rem 1.25rem; z-index:1000; border-radius:0 0 6px 0;
+  }
+  .skip-link:focus{ left:0; }
+
+  /* Visually hidden but accessible */
+  .visually-hidden{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  /* ---------- Header / Nav ---------- */
+  .site-header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.1rem clamp(1.25rem, 4vw, 3.5rem) 1.5rem;
+    transition:background .4s var(--ease), padding .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .site-header.is-scrolled{
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    padding:.7rem clamp(1.25rem, 4vw, 3.5rem) .95rem;
+    box-shadow:0 4px 24px rgba(8,30,68,.08);
+  }
+  .logo{ display:flex; align-items:center; line-height:0; }
+  .site-header .logo img{
+    display:block; height:34px; width:auto;
+    filter:brightness(0) invert(1);
+    transition:filter .3s var(--ease);
+  }
+  .site-header.is-scrolled .logo img{ filter:none; }
+
+  .main-nav{ display:flex; align-items:center; gap:clamp(1.25rem, 2.4vw, 2.75rem); }
+  .main-nav ul{ list-style:none; display:flex; align-items:center; gap:clamp(1.25rem, 2.4vw, 2.5rem); margin:0; padding:0; }
+  .nav-links a{
+    font-size:.9rem; letter-spacing:.02em; font-weight:500;
+    color:var(--white); line-height:1;
+    position:relative; padding-bottom:4px;
+    transition:color .3s var(--ease);
+  }
+  .site-header.is-scrolled .nav-links a{ color:var(--navy); }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:0; height:1px; width:0;
+    background:currentColor; transition:width .3s var(--ease);
+  }
+  .nav-links a:hover::after, .nav-links a:focus-visible::after{ width:100%; }
+  .nav-links{ display:flex; }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:.85rem 1.75rem; border-radius:2px; font-size:.85rem; font-weight:600;
+    letter-spacing:.03em; text-transform:uppercase; border:none;
+    line-height:1; white-space:nowrap;
+    transition:background .3s ease, color .3s ease;
+  }
+  .btn-primary{ background:var(--navy); color:var(--white); }
+  .btn-primary:hover, .btn-primary:focus-visible{ background:#122c5c; }
+  .btn-white{ background:var(--white); color:var(--navy); }
+  .btn-white:hover, .btn-white:focus-visible{ background:var(--warm-white); }
+  .btn-outline-light{ border:1.5px solid rgba(255,255,255,.65); color:var(--white); }
+  .btn-outline-light:hover, .btn-outline-light:focus-visible{ background:var(--white); color:var(--navy); border-color:var(--white); }
+  .btn-outline-dark{ border:1.5px solid var(--navy); color:var(--navy); }
+  .btn-outline-dark:hover, .btn-outline-dark:focus-visible{ background:var(--navy); color:var(--white); }
+
+  /* Top (transparent) state: white button, navy text. Sticky state: solid navy button. */
+  .nav-cta{ display:none; background:var(--white); color:var(--navy); }
+  .nav-cta:hover, .nav-cta:focus-visible{ background:var(--warm-white); color:var(--navy); }
+  .site-header.is-scrolled .nav-cta{ background:var(--navy); color:var(--white); }
+  .site-header.is-scrolled .nav-cta:hover, .site-header.is-scrolled .nav-cta:focus-visible{ background:#122c5c; color:var(--white); }
+  @media(min-width:900px){ .nav-cta{ display:inline-flex; } }
+
+  .menu-toggle{
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px;
+    align-self:center; background:none; border:none; padding:.5rem; width:40px; height:40px;
+    z-index:110;
+  }
+  .menu-toggle span{ width:22px; height:1.5px; background:var(--white); transition:background .3s var(--ease); }
+  .site-header.is-scrolled .menu-toggle span{ background:var(--navy); }
+  @media(min-width:900px){ .menu-toggle{ display:none; } }
+  @media(max-width:899px){ .nav-links{ display:none; } }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; min-height:100svh; width:100%;
+    display:flex; align-items:flex-end;
+    overflow:hidden; background:var(--navy);
+  }
+  .hero-media{
+    position:absolute; inset:0; z-index:0; background:var(--navy);
+  }
+  /* Very low neutral dark wash — keeps nav/text readable without tinting the photo's color */
+  .hero-media::before{
+    content:''; position:absolute; inset:0; z-index:2;
+    background:rgba(0,0,0,.24);
+  }
+  .hero-media::after{
+    content:''; position:absolute; inset:0; z-index:2;
+    background:linear-gradient(180deg, rgba(0,0,0,.4) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 76%, rgba(0,0,0,.34) 100%);
+  }
+  /* Each slide is a wrapper (handles the fade) around an img (handles the
+     slow Ken Burns zoom) — kept separate so the two effects don't conflict. */
+  .hero-slide{
+    position:absolute; inset:0; width:100%; height:100%; overflow:hidden;
+    opacity:0;
+    transition:opacity 1.4s ease-in-out;
+    z-index:1; will-change:opacity;
+  }
+  .hero-slide.is-active{ opacity:1; z-index:2; }
+  .hero-slide img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center 60%;
+    transform:scale(1); will-change:transform;
+  }
+  .hero-slide img.kb-in{ animation:kbZoomIn 9s ease-out forwards; }
+  .hero-slide img.kb-out{ animation:kbZoomOut 9s ease-out forwards; }
+  .hero-slide img.kb-pan-l{ animation:kbPanLeft 9s ease-out forwards; }
+  .hero-slide img.kb-pan-r{ animation:kbPanRight 9s ease-out forwards; }
+
+  @keyframes kbZoomIn{
+    from{ transform:scale(1) translate(0,0); }
+    to{ transform:scale(1.14) translate(-1%,-1%); }
+  }
+  @keyframes kbZoomOut{
+    from{ transform:scale(1.14) translate(-1%,0); }
+    to{ transform:scale(1.02) translate(1%,-1%); }
+  }
+  @keyframes kbPanLeft{
+    from{ transform:scale(1.1) translate(2%,0); }
+    to{ transform:scale(1.16) translate(-2%,-1%); }
+  }
+  @keyframes kbPanRight{
+    from{ transform:scale(1.1) translate(-2%,-1%); }
+    to{ transform:scale(1.16) translate(2%,0); }
+  }
+
+
+  .hero-slide-nav{
+    position:absolute; left:clamp(1.25rem,5vw,4rem); bottom:clamp(1.5rem,4vh,2.5rem); z-index:3;
+    display:flex; gap:.6rem;
+  }
+  .hero-slide-dot{
+    width:26px; height:3px; background:rgba(255,255,255,.35); border:none; padding:0; cursor:pointer;
+    position:relative; overflow:hidden; border-radius:2px;
+  }
+  .hero-slide-dot::after{
+    content:''; position:absolute; inset:0; background:var(--warm-white);
+    transform:scaleX(0); transform-origin:left; transition:transform .3s ease;
+  }
+  .hero-slide-dot.is-active::after{ transform:scaleX(1); }
+
+  .hero-inner{
+    position:relative; z-index:2; width:100%;
+    padding:clamp(6rem,14vh,9rem) clamp(1.25rem,5vw,4rem) clamp(3rem,6vh,4.5rem);
+    display:flex; flex-direction:column; gap:clamp(1.5rem,3vh,2.5rem);
+  }
+  /* Subtle bluish scrim sitting only behind the text block, not the whole photo */
+  .hero-inner::before{
+    content:''; position:absolute; inset:-2rem -1.5rem -1.5rem;
+    z-index:-1; border-radius:8px;
+    background:linear-gradient(180deg, rgba(8,30,68,0) 0%, rgba(8,30,68,.42) 40%, rgba(8,30,68,.58) 100%);
+  }
+  .hero-eyebrow{
+    color:var(--warm-white); font-size:.8rem; letter-spacing:.22em; text-transform:uppercase;
+    font-weight:700; display:flex; align-items:center; gap:.75rem;
+  }
+  .hero-eyebrow::before{
+    content:''; width:34px; height:1px; background:var(--indigo);
+  }
+  .hero-headline{
+    color:var(--white); font-size:clamp(2.6rem, 6vw, 5.4rem); line-height:1.1;
+    max-width:17ch; font-weight:700; letter-spacing:-.01em;
+  }
+  .hero-headline em{ font-style:normal; color:var(--warm-white); font-weight:700; }
+  .hero-sub{
+    color:rgba(255,255,255,.92); font-size:clamp(1.02rem,1.4vw,1.2rem); max-width:46ch; line-height:1.65; font-weight:400;
+  }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:1rem; margin-top:.5rem; }
+
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:clamp(1.5rem,4vw,3.5rem);
+    margin-top:clamp(1.5rem,4vh,3rem); padding-top:clamp(1.5rem,3vh,2rem);
+    border-top:1px solid rgba(255,255,255,.22);
+  }
+  .hero-meta-item{ display:flex; flex-direction:column; gap:.2rem; }
+  .hero-meta-item strong{
+    font-family:var(--font-display); color:var(--white); font-size:clamp(1.5rem,2.4vw,2.1rem); font-weight:700;
+  }
+  .hero-meta-item span{
+    color:rgba(255,255,255,.85); font-size:.78rem; letter-spacing:.06em; text-transform:uppercase;
+  }
+
+  .scroll-cue{
+    position:absolute; right:clamp(1.25rem,5vw,4rem); bottom:clamp(1.5rem,4vh,2.5rem); z-index:2;
+    display:none; align-items:center; gap:.75rem; color:rgba(255,246,250,.85);
+    font-size:.75rem; letter-spacing:.18em; text-transform:uppercase;
+    writing-mode:vertical-rl;
+  }
+  @media(min-width:700px){ .scroll-cue{ display:flex; } }
+  .scroll-cue .line{
+    width:1px; height:52px; background:rgba(255,255,255,.35); position:relative; overflow:hidden;
+  }
+  .scroll-cue .line::after{
+    content:''; position:absolute; top:0; left:0; width:100%; height:40%; background:var(--indigo);
+    animation:scrollLine 2.2s ease-in-out infinite;
+  }
+  @keyframes scrollLine{
+    0%{ transform:translateY(-100%); }
+    100%{ transform:translateY(250%); }
+  }
+
+  /* ---------- Trust Bar ---------- */
+  .trust-bar{
+    background:var(--white); border-bottom:1px solid rgba(8,30,68,.08);
+    padding:clamp(2.5rem,5vh,3.5rem) clamp(1.25rem,5vw,4rem);
+  }
+  .trust-bar-inner{
+    max-width:1440px; margin:0 auto;
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:2.5rem;
+  }
+  .trust-item{
+    display:flex; flex-direction:column; align-items:flex-start; gap:.6rem;
+    flex:1 1 160px; min-width:150px;
+  }
+  @media(min-width:821px){
+    .trust-item{
+      padding-left:clamp(1.25rem,2.4vw,2rem);
+      border-left:1px solid rgba(8,30,68,.1);
+    }
+    .trust-item:first-child{ border-left:none; padding-left:0; }
+  }
+  .trust-icon{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:44px; height:44px; border-radius:50%;
+    background:rgba(93,102,240,.08); color:var(--navy);
+  }
+  .trust-icon svg{ width:22px; height:22px; }
+  .trust-label{
+    font-family:var(--font-display); font-size:1.05rem; font-weight:700; color:var(--navy); margin:0;
+  }
+  .trust-desc{
+    font-size:.85rem; color:rgba(8,30,68,.62); margin:0; line-height:1.4;
+  }
+
+  @media(max-width:820px){
+    /* Swipeable card slider instead of a cramped wrapped grid */
+    .trust-bar{ padding:2.25rem 0 2rem; }
+    .trust-bar-inner{
+      flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch; scrollbar-width:none; gap:1rem;
+      padding:0 clamp(1.5rem,7vw,2.25rem) .5rem; margin:0;
+      scroll-padding-inline:clamp(1.5rem,7vw,2.25rem);
+    }
+    .trust-bar-inner::-webkit-scrollbar{ display:none; }
+    .trust-item{
+      flex:0 0 72%; min-width:0; scroll-snap-align:start;
+      border-left:none; padding-left:0;
+      background:var(--warm-white); border-radius:12px; padding:1.5rem;
+    }
+    .trust-bar-hint{
+      display:block; text-align:center; font-size:.75rem; letter-spacing:.06em;
+      text-transform:uppercase; color:rgba(8,30,68,.45); margin:.75rem 0 0;
+    }
+  }
+  @media(min-width:821px){ .trust-bar-hint{ display:none; } }
+
+  /* ---------- Shared section type ---------- */
+  .section-eyebrow{
+    display:flex; align-items:center; gap:.75rem;
+    font-size:.8rem; letter-spacing:.2em; text-transform:uppercase; font-weight:700;
+    color:var(--indigo); margin:0 0 1rem;
+  }
+  .section-eyebrow::before{ content:''; width:30px; height:1px; background:var(--indigo); }
+  .section-heading{
+    font-size:clamp(2rem,4vw,2.75rem); line-height:1.15; color:var(--navy);
+    font-weight:700; margin:0 0 1.25rem; max-width:16ch;
+  }
+  .section-heading em{ font-style:normal; color:var(--indigo); }
+  .section-lead{
+    font-size:clamp(1rem,1.3vw,1.1rem); line-height:1.7; color:rgba(8,30,68,.72);
+    max-width:52ch; margin:0 0 2.25rem;
+  }
+
+  /* ---------- Why Maximus (side-by-side split screen) ---------- */
+  .container{ max-width:var(--content-max); margin:0 auto; padding:0 clamp(1.25rem,5vw,3rem); }
+
+  .why-us{
+    display:grid; grid-template-columns:1fr; background:var(--white);
+    max-width:var(--content-max); margin:clamp(4rem,10vh,6.5rem) auto 0;
+  }
+  .why-us-media{ position:relative; overflow:hidden; min-height:220px; }
+  .why-us-media img{
+    position:absolute; top:-6%; left:0; width:100%; height:112%; object-fit:cover;
+  }
+  .why-us-content{
+    padding:clamp(3rem,7vh,4.5rem) clamp(1.5rem,6vw,3.5rem);
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .why-us-points{ list-style:none; margin:0 0 2.25rem; padding:0; display:flex; flex-direction:column; gap:.9rem; }
+  .why-us-points li{
+    display:flex; align-items:flex-start; gap:.7rem;
+    font-size:1rem; color:rgba(8,30,68,.8); line-height:1.5;
+  }
+  .why-us-points svg{ width:19px; height:19px; flex:0 0 auto; margin-top:.15rem; stroke:var(--indigo); }
+  .why-us-cta{ display:flex; flex-wrap:wrap; align-items:center; gap:1.5rem; }
+  .why-us-phone{
+    font-size:.92rem; font-weight:600; color:var(--navy);
+    display:inline-flex; align-items:center; gap:.5rem;
+  }
+  .why-us-phone svg{ width:16px; height:16px; stroke:var(--indigo); }
+
+  @media(min-width:940px){
+    .why-us{ grid-template-columns:1fr 1fr; min-height:440px; }
+    .why-us-media{ min-height:100%; }
+  }
+
+  /* ---------- Products Overview (dark, architectural index style) ---------- */
+  .products{ background:var(--navy); padding:clamp(5rem,11vh,8rem) 0 clamp(4rem,10vh,7rem); color:var(--white); margin-top:clamp(3.5rem,8vh,5.5rem); }
+  .products-head{
+    display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end;
+    gap:2rem; margin-bottom:clamp(2.5rem,6vh,3.5rem);
+  }
+  .products-index{
+    font-size:.85rem; letter-spacing:.15em; color:rgba(255,255,255,.5); margin:0 0 1rem;
+  }
+  .products-title{
+    font-family:var(--font-display); font-size:clamp(2rem,3.6vw,2.6rem); font-weight:700;
+    color:var(--white); margin:0 0 1rem;
+  }
+  .products-lead{
+    font-size:1rem; line-height:1.7; color:rgba(255,255,255,.62); max-width:46ch; margin:0;
+  }
+  .products-nav{ display:flex; justify-content:flex-end; gap:.6rem; margin-top:1.5rem; }
+  .products-nav button{
+    width:40px; height:40px; border-radius:50%; border:1px solid rgba(255,255,255,.3);
+    background:transparent; color:var(--white); display:flex; align-items:center; justify-content:center;
+    transition:background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+  }
+  .products-nav button:hover{ background:var(--white); color:var(--navy); border-color:var(--white); }
+  .products-nav svg{ width:17px; height:17px; }
+
+  .products-swiper{ overflow:hidden; margin:0 -1.25rem; padding:0 1.25rem; }
+  .product-card{
+    height:auto; padding:0 1.25rem; border-left:1px solid rgba(255,255,255,.12);
+    transition:transform .4s var(--ease);
+  }
+  .product-card-media{
+    position:relative; overflow:hidden; aspect-ratio:3/4; margin-bottom:1.5rem;
+  }
+  .product-card-media::after{
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background:var(--indigo); transform:scaleX(0); transform-origin:left;
+    transition:transform .45s var(--ease); z-index:1;
+  }
+  .product-card-media img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    transition:transform .8s var(--ease);
+  }
+  .product-card:hover{ transform:translateY(-4px); }
+  .product-card:hover .product-card-media img{ transform:scale(1.06); }
+  .product-card:hover .product-card-media::after{ transform:scaleX(1); }
+  .product-card h3{
+    font-family:var(--font-display); font-size:1.3rem; font-weight:700; color:var(--white); margin:0 0 .6rem;
+    transition:color .3s var(--ease);
+  }
+  .product-card:hover h3{ color:var(--indigo); }
+  .product-card p{
+    font-size:.92rem; line-height:1.65; color:rgba(255,255,255,.6); margin:0 0 1.25rem; max-width:34ch;
+  }
+  .product-card-link{
+    display:inline-flex; align-items:center; gap:.5rem; font-size:.88rem; font-weight:600;
+    color:var(--white); padding-bottom:.3rem; border-bottom:1px solid rgba(255,255,255,.35);
+    transition:border-color .3s var(--ease), color .3s var(--ease), gap .3s var(--ease);
+  }
+  .product-card-link svg{ width:15px; height:15px; transition:transform .3s var(--ease); }
+  .product-card-link:hover{ color:var(--indigo); border-color:var(--indigo); gap:.75rem; }
+  .product-card-link:hover svg{ transform:translateX(2px); }
+
+  /* ---------- Door Styles (3D card-stack gallery) ---------- */
+  .door-styles{ background:var(--white); padding:clamp(5rem,11vh,8rem) 0 clamp(4rem,9vh,6rem); }
+  .door-styles-head{
+    display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end;
+    gap:2rem; margin-bottom:clamp(2.5rem,6vh,3.5rem);
+  }
+  .door-styles-nav{ display:flex; justify-content:flex-end; gap:.6rem; margin-top:1.5rem; }
+  .door-styles-nav button{
+    width:40px; height:40px; border-radius:50%; border:1px solid rgba(8,30,68,.2);
+    background:transparent; color:var(--navy); display:flex; align-items:center; justify-content:center;
+    transition:background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+  }
+  .door-styles-nav button:hover{ background:var(--navy); color:var(--white); border-color:var(--navy); }
+  .door-styles-nav svg{ width:17px; height:17px; }
+
+  /* Flat, edge-to-edge photo gallery — real images stay fully visible and
+     undistorted, no 3D rotation or dimming filters. */
+  .door-styles-swiper{ overflow:hidden; }
+  .door-style-slide{
+    position:relative; aspect-ratio:5/4; overflow:hidden; cursor:grab;
+  }
+  .door-style-slide img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    transition:transform .6s var(--ease);
+  }
+  .door-style-slide:hover img{ transform:scale(1.05); }
+  .door-style-caption{
+    position:absolute; left:1rem; bottom:1rem; z-index:1;
+    background:rgba(8,30,68,.85); color:var(--white); padding:.7rem 1rem; border-radius:8px;
+  }
+  .door-style-caption strong{
+    display:block; font-family:var(--font-display); font-size:1rem; font-weight:700;
+  }
+  .door-style-caption span{
+    display:block; font-size:.78rem; color:rgba(255,255,255,.75); margin-top:.15rem;
+  }
+
+  /* ---------- How It Works (video showcase, no slider) ---------- */
+  .process-video{ background:var(--navy); padding:clamp(4.5rem,10vh,7rem) 0; }
+  .process-video-grid{ display:grid; grid-template-columns:1fr; gap:2.75rem; align-items:center; }
+  .process-video-tag{
+    display:inline-block; background:rgba(255,255,255,.08); color:rgba(255,255,255,.85);
+    font-size:.78rem; font-weight:600; padding:.45rem .95rem; border-radius:20px; margin-bottom:1.75rem;
+  }
+  .process-video-title{
+    font-family:var(--font-display); font-weight:700; color:var(--white);
+    font-size:clamp(2.2rem,4vw,3rem); line-height:1.12; margin:0 0 1.25rem; max-width:14ch;
+  }
+  .process-video-title em{ font-style:normal; color:rgba(255,255,255,.7); font-weight:500; }
+  .process-video-lead{
+    font-size:1rem; line-height:1.7; color:rgba(255,255,255,.62); max-width:44ch; margin:0 0 2.25rem;
+  }
+  .process-video-cta{ display:flex; flex-wrap:wrap; align-items:center; gap:1.75rem; }
+  .process-video-link{
+    font-size:.92rem; font-weight:600; color:var(--white);
+    text-decoration:underline; text-underline-offset:4px; transition:color .3s var(--ease);
+  }
+  .process-video-link:hover{ color:var(--indigo); }
+  .process-video-media{
+    position:relative; overflow:hidden; aspect-ratio:16/10;
+    box-shadow:0 40px 80px rgba(0,0,0,.35);
+  }
+  .process-video-media video{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; background:var(--navy);
+  }
+
+  @media(min-width:960px){
+    .process-video-grid{ grid-template-columns:1fr 1fr; gap:4rem; }
+    .process-video-media{ aspect-ratio:auto; height:520px; }
+  }
+
+  /* ---------- Who We Serve (client-list reveal) ---------- */
+  .who-we-serve{ background:var(--white); padding:clamp(4.5rem,10vh,7rem) 0; }
+  .serve-head{ max-width:640px; margin-bottom:clamp(2.5rem,6vh,3.5rem); }
+  .serve-body{ display:grid; grid-template-columns:1fr; gap:1rem; align-items:stretch; }
+  .serve-list{ list-style:none; margin:0; padding:0; border-top:1px solid rgba(8,30,68,.14); }
+  .serve-item{
+    display:flex; align-items:center; gap:1.1rem; padding:1.35rem 0;
+    border-bottom:1px solid rgba(8,30,68,.14); cursor:pointer;
+    transition:padding-left .35s var(--ease);
+  }
+  .serve-item:hover{ padding-left:.75rem; }
+  .serve-thumb{ width:52px; height:52px; border-radius:8px; object-fit:cover; flex:0 0 auto; }
+  .serve-item span{
+    flex:1; font-family:var(--font-display); font-weight:700; color:var(--navy);
+    font-size:clamp(1.4rem,3.6vw,2.2rem); transition:color .3s var(--ease);
+  }
+  .serve-item:hover span{ color:var(--indigo); }
+  .serve-item svg{
+    width:20px; height:20px; color:rgba(8,30,68,.3); flex:0 0 auto;
+    transition:transform .35s var(--ease), color .3s var(--ease);
+  }
+  .serve-item:hover svg{ color:var(--indigo); transform:translate(3px,-3px); }
+  .serve-visual{ display:none; }
+
+  @media(min-width:940px){
+    .serve-body{ grid-template-columns:1.4fr 1fr; gap:3.5rem; }
+    .serve-thumb{ display:none; }
+    .serve-visual{
+      display:block; position:relative; overflow:hidden; height:100%; min-height:380px;
+      box-shadow:0 30px 60px rgba(8,30,68,.18);
+    }
+    .serve-visual-img{
+      position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+      opacity:0; z-index:0; transition:opacity .5s ease;
+    }
+    .serve-visual-img.is-active{ opacity:1; z-index:1; }
+  }
+
+  /* ---------- Testimonials (dual-row marquee) ---------- */
+  .testimonials{ background:var(--navy); padding:clamp(4.5rem,10vh,7rem) 0; overflow:hidden; }
+  .testimonials-head{ margin-bottom:clamp(2.5rem,6vh,3.5rem); }
+  .testimonials-head > *{ max-width:640px; }
+  .testimonials .section-eyebrow{ color:var(--warm-white); }
+  .testimonials .section-eyebrow::before{ background:var(--warm-white); }
+  .testimonials .section-heading{ color:var(--white); }
+  .testimonials .section-heading em{ color:var(--indigo); }
+  .testimonials .section-lead{ color:rgba(255,255,255,.62); }
+
+  .marquee-track{ display:flex; flex-direction:column; gap:1.25rem; }
+  .marquee-row{ display:flex; gap:1.25rem; width:max-content; }
+  .marquee-clone{ display:flex; gap:1.25rem; }
+  .marquee-row.row-1{ animation:marqueeLeft 46s linear infinite; }
+  .marquee-row.row-2{ animation:marqueeRight 46s linear infinite; }
+  .marquee-track:hover .marquee-row{ animation-play-state:paused; }
+  @keyframes marqueeLeft{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+  @keyframes marqueeRight{ from{ transform:translateX(-50%); } to{ transform:translateX(0); } }
+
+  .testimonial-card{
+    flex:0 0 auto; width:min(85vw,340px); background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:1.75rem;
+  }
+  .testimonial-stars{ color:var(--indigo); font-size:.9rem; letter-spacing:.15em; margin-bottom:1rem; }
+  .testimonial-card p{
+    font-style:italic; color:rgba(255,255,255,.85); line-height:1.6; margin:0 0 1.25rem; font-size:.95rem;
+  }
+  .testimonial-attr{ font-size:.82rem; font-weight:600; color:rgba(255,255,255,.55); }
+
+  /* ---------- FAQ ---------- */
+  .faq{ background:var(--white); padding:clamp(4.5rem,10vh,7rem) 0; }
+  .faq-grid{ display:grid; grid-template-columns:1fr; gap:2.5rem; align-items:stretch; }
+  .faq-media{ display:none; }
+  .faq-list{ margin-top:clamp(2.5rem,6vh,3rem); }
+  .faq-item{ border-bottom:1px solid rgba(8,30,68,.12); }
+  .faq-item:first-child{ border-top:1px solid rgba(8,30,68,.12); }
+  .faq-question{
+    width:100%; display:flex; justify-content:space-between; align-items:center; gap:1.5rem;
+    padding:1.5rem 0; background:none; border:none; text-align:left;
+    font-family:var(--font-display); font-size:1.05rem; font-weight:700; color:var(--navy); cursor:pointer;
+  }
+  .faq-icon{
+    flex:0 0 auto; width:28px; height:28px; border-radius:50%; border:1px solid rgba(8,30,68,.2);
+    display:flex; align-items:center; justify-content:center; font-size:1.2rem; line-height:1; color:var(--navy);
+    transition:transform .35s var(--ease), background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+  }
+  .faq-item.is-open .faq-icon{ transform:rotate(45deg); background:var(--navy); color:var(--white); border-color:var(--navy); }
+  .faq-answer{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .4s var(--ease); }
+  .faq-answer > div{ overflow:hidden; }
+  .faq-item.is-open .faq-answer{ grid-template-rows:1fr; }
+  .faq-answer p{ margin:0 0 1.5rem; color:rgba(8,30,68,.65); font-size:.95rem; line-height:1.7; max-width:65ch; }
+
+  @media(min-width:960px){
+    .faq-grid{ grid-template-columns:1fr 1fr; gap:4rem; }
+    .faq-media{
+      display:block; position:relative; overflow:hidden; height:100%; min-height:420px;
+      box-shadow:0 30px 60px rgba(8,30,68,.16);
+    }
+    .faq-media img, .faq-media video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  }
+
+  /* ---------- Final Contact CTA (full-bleed image, overlay, floating form card) ----------
+     Deliberately: .contact-cta itself carries NO display:flex/grid — it is a plain
+     block with padding. That keeps its .container child sizing exactly like every
+     other section's (a flex/grid parent would shrink that child to content width). */
+  .contact-cta{ position:relative; overflow:hidden; padding:clamp(5rem,14vh,9rem) 0; }
+  .contact-cta-bg{ position:absolute; inset:0; z-index:0; }
+  .contact-cta-bg img{ width:100%; height:100%; object-fit:cover; }
+  .contact-cta-bg::after{ content:''; position:absolute; inset:0; background:rgba(0,0,0,.55); }
+
+  .contact-cta-inner{
+    position:relative; z-index:1; display:grid; grid-template-columns:1fr; gap:2.5rem;
+  }
+  .contact-cta-title{
+    font-family:var(--font-display); font-weight:700; color:var(--white);
+    font-size:clamp(2.2rem,5vw,3.2rem); line-height:1.12; margin:0 0 2rem;
+  }
+  .contact-cta-divider{ height:1px; background:rgba(255,255,255,.25); margin-bottom:2rem; }
+  .contact-cta-subhead{
+    font-family:var(--font-display); font-weight:700; color:var(--white); font-size:1.1rem; margin:0 0 1.25rem;
+  }
+  .contact-cta-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1rem; }
+  .contact-cta-list li{ display:flex; align-items:center; gap:.85rem; color:rgba(255,255,255,.85); font-size:.95rem; }
+  .contact-cta-list svg{ width:19px; height:19px; color:var(--indigo); flex:0 0 auto; }
+  .contact-cta-list a{ color:inherit; }
+  .contact-cta-list a:hover{ color:var(--warm-white); }
+
+  .contact-cta-form{
+    background:var(--white); border-radius:0;
+    padding:clamp(2rem,4vw,2.5rem); box-shadow:0 40px 90px rgba(0,0,0,.35);
+    display:flex; flex-direction:column; gap:1.25rem;
+  }
+  .contact-cta-form h3{
+    font-family:var(--font-display); font-weight:700; color:var(--navy); font-size:1.5rem; margin:0 0 .5rem;
+  }
+  .contact-cta-form label{ display:flex; flex-direction:column; gap:.3rem; }
+  .contact-cta-form label span{ font-size:.82rem; color:rgba(8,30,68,.5); }
+  .contact-cta-form input, .contact-cta-form textarea{
+    border:none; border-bottom:1px solid rgba(8,30,68,.15); background:transparent; border-radius:0;
+    padding:.45rem 0; font-family:inherit; font-size:1rem; color:var(--navy);
+    transition:border-color .3s var(--ease);
+  }
+  .contact-cta-form input:focus, .contact-cta-form textarea:focus{ outline:none; border-color:var(--indigo); }
+  .contact-cta-form textarea{ resize:vertical; min-height:44px; }
+  .contact-cta-submit{
+    display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+    background:var(--navy); color:var(--white); border:none; padding:1.1rem 1.5rem; border-radius:4px;
+    font-size:.9rem; font-weight:700; letter-spacing:.02em; cursor:pointer; margin-top:.5rem;
+    transition:background .3s var(--ease);
+  }
+  .contact-cta-submit:hover{ background:#122c5c; }
+  .contact-cta-submit svg{ width:16px; height:16px; transition:transform .3s var(--ease); }
+  .contact-cta-submit:hover svg{ transform:translate(2px,-2px); }
+  .form-success{
+    margin:0; padding:.85rem 1rem; background:rgba(93,102,240,.1); color:var(--navy);
+    border-radius:6px; font-size:.88rem; font-weight:600;
+  }
+
+  @media(min-width:960px){
+    .contact-cta-inner{ grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+  }
+
+  /* ---------- Footer (compact, simple) ---------- */
+  .site-footer{ background:var(--navy); padding:clamp(2.5rem,6vh,3.25rem) 0; }
+  .footer-top{
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.25rem;
+  }
+  .footer-logo{ height:34px; filter:brightness(0) invert(1); display:block; }
+  .footer-nav{ display:flex; flex-wrap:wrap; justify-content:center; gap:1rem 1.5rem; }
+  .footer-nav a{ font-size:.85rem; color:rgba(255,255,255,.72); transition:color .25s var(--ease); }
+  .footer-nav a:hover{ color:var(--white); }
+  .footer-divider{ height:1px; background:rgba(255,255,255,.12); margin:1.5rem 0; }
+  @media(max-width:480px){
+    .footer-top{ flex-direction:column; }
+    .footer-nav{ gap:.6rem 1.1rem; }
+    .footer-nav a{ font-size:.8rem; }
+  }
+  .footer-bottom{
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.75rem;
+  }
+  .footer-bottom p{ margin:0; font-size:.78rem; color:rgba(255,255,255,.45); }
+  .footer-contact{ display:flex; align-items:center; gap:.6rem; font-size:.78rem; color:rgba(255,255,255,.4); }
+  .footer-contact a{ color:rgba(255,255,255,.72); transition:color .25s var(--ease); }
+  .footer-contact a:hover{ color:var(--white); }
+
+  @media(prefers-reduced-motion:reduce){
+    html{ scroll-behavior:auto; }
+    .scroll-cue .line::after{ animation:none; }
+    .hero-slide{ transform:none !important; opacity:0; transition:opacity .6s ease !important; }
+    .hero-slide.is-active{ opacity:1; }
+    .hero-slide img{ animation:none !important; }
+    .marquee-row{ animation:none !important; }
+    .marquee-clone{ display:none; }
+    .marquee-track{ overflow-x:auto; }
+    .marquee-row{ width:auto; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site-header" id="siteHeader">
+  <a href="#top" class="logo" aria-label="Maximus Kitchens — Home">
+    <img src="logo/transpaent blue text logo.png" alt="Maximus Kitchens logo">
+  </a>
+
+  <nav class="main-nav" aria-label="Primary">
+    <div class="nav-links">
+      <ul>
+        <li><a href="#door-styles">Door Styles</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#who-we-serve">Who We Serve</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <a href="#contact" class="btn btn-primary nav-cta">Request a Quote</a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-label="Introduction">
+    <div class="hero-media" id="heroMedia">
+      <div class="hero-slide">
+        <img src="sampleimages/Dover_with_Royal_Island-min.jpg"
+             alt="Custom kitchen with navy blue island, quartz waterfall countertop, and white shaker cabinetry"
+             fetchpriority="high" loading="eager" decoding="async">
+      </div>
+      <div class="hero-slide">
+        <img src="sampleimages/Allure__I__Luxe__I__Canyon_Oak_-_view_2.png"
+             alt="Modern kitchen with warm wood-tone cabinetry and marble waterfall island"
+             loading="lazy" decoding="async">
+      </div>
+      <div class="hero-slide">
+        <img src="sampleimages/Kitchen3_Hallmark_Frost.jpg"
+             alt="Bright kitchen with frost-white cabinetry and gold hardware accents"
+             loading="lazy" decoding="async">
+      </div>
+      <div class="hero-slide">
+        <img src="sampleimages/Luxor-Kitchen-_-View-UPDATE.jpg"
+             alt="Luxor collection kitchen with dark cabinetry and designer island lighting"
+             loading="lazy" decoding="async">
+      </div>
+      <div class="hero-slide">
+        <img src="sampleimages/Echo__I__Timber_Dove_and_Indigo_v2.jpg"
+             alt="Echo collection kitchen in timber, dove, and indigo cabinet finishes"
+             loading="lazy" decoding="async">
+      </div>
+    </div>
+    <div class="hero-slide-nav" role="tablist" aria-label="Hero image selector">
+      <button class="hero-slide-dot" role="tab" aria-label="Show slide 1"></button>
+      <button class="hero-slide-dot" role="tab" aria-label="Show slide 2"></button>
+      <button class="hero-slide-dot" role="tab" aria-label="Show slide 3"></button>
+      <button class="hero-slide-dot" role="tab" aria-label="Show slide 4"></button>
+      <button class="hero-slide-dot" role="tab" aria-label="Show slide 5"></button>
+    </div>
+
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Wholesale Cabinetry · Nationwide USA</p>
+      <h1 class="hero-headline">Cabinetry built for <em>the life</em> lived around it.</h1>
+      <p class="hero-sub">Maximus Kitchens supplies solid-wood, plywood-box cabinetry to contractors, designers, and homeowners across the country — engineered to the same standard whether it ships RTA or fully assembled.</p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-white">Request a Free 3D Layout</a>
+        <a href="tel:+19172821854" class="btn btn-outline-light">Call (917) 282-1854</a>
+      </div>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <strong>20</strong>
+          <span>Years of Craft</span>
+        </div>
+        <div class="hero-meta-item">
+          <strong>48</strong>
+          <span>States Delivered</span>
+        </div>
+        <div class="hero-meta-item">
+          <strong>24 HR</strong>
+          <span>Quote Turnaround</span>
+        </div>
+        <div class="hero-meta-item">
+          <strong>3 Day</strong>
+          <span>RTA Shipping</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="line"></span>
+    </div>
+  </section>
+
+  <section class="trust-bar" aria-label="Why contractors and homeowners choose Maximus Kitchens">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5 7 21l5-2.5 5 2.5-1.5-8.5"/></svg>
+        </span>
+        <p class="trust-label">20 Years</p>
+        <p class="trust-desc">Industry Experience</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 16V7a1 1 0 0 1 1-1h11v10"/><path d="M14 10h4.5l3.5 3.5V16h-8z"/><circle cx="7" cy="18.5" r="1.8"/><circle cx="17.5" cy="18.5" r="1.8"/></svg>
+        </span>
+        <p class="trust-label">Nationwide</p>
+        <p class="trust-desc">Delivery, All 48 States</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.5 12.8 12.8 20.5a1.5 1.5 0 0 1-2.1 0l-7.2-7.2a1.5 1.5 0 0 1 0-2.1L11.2 3.5 20.5 3v9.3a1.5 1.5 0 0 1-.4 1.1z"/><circle cx="15.5" cy="7.5" r="1.3"/></svg>
+        </span>
+        <p class="trust-label">Wholesale</p>
+        <p class="trust-desc">Pricing, Direct to You</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2.5 21 7v10l-9 4.5L3 17V7z"/><path d="M3 7l9 4.5L21 7M12 11.5V21.5"/></svg>
+        </span>
+        <p class="trust-label">Free 3D Layout</p>
+        <p class="trust-desc">On Every Order</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+        </span>
+        <p class="trust-label">Sample Doors</p>
+        <p class="trust-desc">Available Before You Order</p>
+      </div>
+    </div>
+    <p class="trust-bar-hint">Swipe for more →</p>
+  </section>
+
+  <section class="why-us" id="why-maximus" aria-label="Why choose Maximus Kitchens">
+    <div class="why-us-media">
+      <img src="sampleimages/Luna__I__Truffle_view_1_Final.jpg"
+           alt="Luna collection kitchen in truffle-tone cabinetry with waterfall island"
+           loading="lazy" decoding="async">
+    </div>
+
+    <div class="why-us-content">
+      <p class="section-eyebrow">Why Maximus Kitchens</p>
+      <h2 class="section-heading">Built on quality, <em>priced like wholesale.</em></h2>
+      <p class="section-lead">For 20 years, we've supplied contractors, remodelers, and homeowners nationwide with cabinetry that holds up to real use — solid wood doors, real plywood boxes — without the retail markup.</p>
+
+      <ul class="why-us-points">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Better quality at fair, wholesale-direct prices</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Reliable nationwide delivery, RTA in as little as 3 days</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Free 3D layout and sample doors on every order</li>
+      </ul>
+
+      <div class="why-us-cta">
+        <a href="#contact" class="btn btn-primary">Talk to Our Team</a>
+        <a href="tel:+19172821854" class="why-us-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4.5 4h4l2 5-2.5 1.5a11 11 0 0 0 5.5 5.5L15 13l5 2v4a2 2 0 0 1-2 2C10.5 21 3 13.5 3 6a2 2 0 0 1 2-2z"/></svg>
+          (917) 282-1854
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="products" aria-label="Our cabinet products">
+    <div class="container">
+      <div class="products-head">
+        <div class="products-head-text">
+          <p class="products-index">/ 01</p>
+          <h2 class="products-title">What We Offer</h2>
+          <p class="products-lead">Every line we ship — RTA or fully assembled — starts with the same solid wood doors and 1/2" plywood boxes. The only thing that changes is how it arrives at your jobsite.</p>
+        </div>
+      </div>
+
+      <div class="swiper products-swiper">
+        <div class="swiper-wrapper">
+          <article class="swiper-slide product-card">
+            <div class="product-card-media">
+              <img src="sampleimages/RTA cabinets.png" alt="Flat-packed RTA cabinet boxes ready for assembly" loading="lazy" decoding="async" style="object-position:center 40%;">
+            </div>
+            <h3>RTA Cabinets</h3>
+            <p>Ready-to-assemble cabinetry that ships in as little as 3 business days — full construction quality, flat-packed for fast, affordable delivery nationwide.</p>
+            <a href="#contact" class="product-card-link">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="swiper-slide product-card">
+            <div class="product-card-media">
+              <img src="sampleimages/sleek-white-saddle-2.jpg" alt="Fully assembled sleek white saddle-finish kitchen cabinetry" loading="lazy" decoding="async" style="object-position:center 35%;">
+            </div>
+            <h3>Pre-Assembled Cabinets</h3>
+            <p>Arrive at your jobsite fully built and ready to install — ideal when your schedule doesn't have room for on-site assembly time.</p>
+            <a href="#contact" class="product-card-link">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="swiper-slide product-card">
+            <div class="product-card-media">
+              <img src="sampleimages/Illume__I__Tuscany__I__Matte_Cashmere_View_1.jpg" alt="Illume Tuscany matte cashmere cabinet finish" loading="lazy" decoding="async" style="object-position:center 35%;">
+            </div>
+            <h3>Popular Cabinet Styles</h3>
+            <p>Shaker, slab, raised panel, transitional, and more — in finishes suited to contractor spec sheets and custom homeowner designs alike.</p>
+            <a href="#contact" class="product-card-link">View Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+
+          <article class="swiper-slide product-card">
+            <div class="product-card-media">
+              <img src="sampleimages/KK-ADU-89.jpg" alt="Kitchen layout with custom cabinetry, planned in 3D before installation" loading="lazy" decoding="async" style="object-position:center 40%;">
+            </div>
+            <h3>Free 3D Layout &amp; Sample Doors</h3>
+            <p>Every order includes a complimentary 3D kitchen layout, plus a sample door so you can check the finish and construction quality before you commit.</p>
+            <a href="#contact" class="product-card-link">Request Yours <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+        </div>
+      </div>
+
+      <div class="products-nav">
+        <button class="products-prev" aria-label="Scroll to previous product">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 6 9 12l8 6"/></svg>
+        </button>
+        <button class="products-next" aria-label="Scroll to next product">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l8 6-8 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="door-styles" id="door-styles" aria-label="Cabinet door styles">
+    <div class="container door-styles-head">
+      <div>
+        <p class="section-eyebrow">Door Styles</p>
+        <h2 class="section-heading">A style for <em>every kitchen.</em></h2>
+        <p class="section-lead">From clean Shaker lines to bold modern slab fronts — every door style is available in the same construction quality Maximus is built on.</p>
+      </div>
+    </div>
+
+    <div class="swiper door-styles-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide door-style-slide">
+          <img src="sampleimages/Allure_I_Galaxy_I_Frost___Forest_Green_-_View_2.jpg" alt="Shaker-style kitchen cabinetry, Allure Galaxy Frost finish" loading="lazy">
+          <span class="door-style-caption"><strong>Shaker</strong><span>Clean, Timeless Lines</span></span>
+        </div>
+        <div class="swiper-slide door-style-slide">
+          <img src="sampleimages/Allure__I__Fusion__I__Timber.png" alt="Raised panel kitchen cabinetry, Allure Fusion Timber finish" loading="lazy">
+          <span class="door-style-caption"><strong>Raised Panel</strong><span>Classic Dimensional Detail</span></span>
+        </div>
+        <div class="swiper-slide door-style-slide">
+          <img src="sampleimages/Augusta_1800.jpg" alt="Inset-style kitchen cabinetry, Augusta 1800 collection" loading="lazy">
+          <span class="door-style-caption"><strong>Inset</strong><span>Precision Flush-Fit Doors</span></span>
+        </div>
+        <div class="swiper-slide door-style-slide">
+          <img src="sampleimages/Dover-Saddle-01_2026-05-01-141440_ioyw.jpg" alt="Slab-style kitchen cabinetry, Dover Saddle finish" loading="lazy">
+          <span class="door-style-caption"><strong>Slab</strong><span>Sleek Minimalist Front</span></span>
+        </div>
+        <div class="swiper-slide door-style-slide">
+          <img src="sampleimages/Echo__I__Timber___Dove_View_1.jpg" alt="Transitional kitchen cabinetry, Echo Timber and Dove finish" loading="lazy">
+          <span class="door-style-caption"><strong>Transitional</strong><span>Modern Meets Traditional</span></span>
+        </div>
+        <div class="swiper-slide door-style-slide">
+          <img src="sampleimages/Illume__I__Catalina__I__Nocce_1_View_1.jpg" alt="Modern kitchen cabinetry, Illume Catalina Nocce finish" loading="lazy">
+          <span class="door-style-caption"><strong>Modern</strong><span>Bold Walnut Finish</span></span>
+        </div>
+        <div class="swiper-slide door-style-slide">
+          <img src="sampleimages/New Project.png" alt="Traditional kitchen cabinetry in warm wood finish" loading="lazy">
+          <span class="door-style-caption"><strong>Traditional</strong><span>Warm Classic Charm</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container door-styles-nav">
+      <button class="door-styles-prev" aria-label="Previous door style">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 6 9 12l8 6"/></svg>
+      </button>
+      <button class="door-styles-next" aria-label="Next door style">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l8 6-8 6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <section class="process-video" id="process" aria-label="How ordering works">
+    <div class="container process-video-grid">
+      <div class="process-video-content">
+        <span class="process-video-tag">How It Works</span>
+        <h2 class="process-video-title">See your kitchen, <em>before it's built.</em></h2>
+        <p class="process-video-lead">Send us your cabinet list, floor plan, or room measurements and we'll follow up with a detailed proposal — plus a free 3D layout — within 24 hours. Choose RTA for 3-day shipping, or fully assembled for a 2–3 week turnaround.</p>
+        <div class="process-video-cta">
+          <a href="#contact" class="btn btn-white">Get Your Free Quote</a>
+          <a href="tel:+19172821854" class="process-video-link">Call (917) 282-1854</a>
+        </div>
+      </div>
+      <div class="process-video-media">
+        <video autoplay muted loop playsinline poster="sampleimages/Luxor-Kitchen-_-View-UPDATE.jpg">
+          <source src="https://videos.pexels.com/video-files/3444433/3444433-hd_1920_1080_30fps.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section class="who-we-serve" id="who-we-serve" aria-label="Who we serve">
+    <div class="container">
+      <div class="serve-head">
+        <p class="section-eyebrow">Who We Serve</p>
+        <h2 class="section-heading">Built for the people <em>doing the work.</em></h2>
+        <p class="section-lead">From full-scale contractors to first-time homeowners, Maximus supplies the same construction quality and wholesale pricing to everyone building a kitchen.</p>
+      </div>
+
+      <div class="serve-body">
+        <ul class="serve-list">
+          <li class="serve-item" data-image="sampleimages/KK-ADU-89.jpg">
+            <img class="serve-thumb" src="sampleimages/KK-ADU-89.jpg" alt="" loading="lazy">
+            <span>Contractors</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </li>
+          <li class="serve-item" data-image="sampleimages/sleek-white-saddle-2.jpg">
+            <img class="serve-thumb" src="sampleimages/sleek-white-saddle-2.jpg" alt="" loading="lazy">
+            <span>Remodelers</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </li>
+          <li class="serve-item" data-image="sampleimages/New Project (1).png">
+            <img class="serve-thumb" src="sampleimages/New Project (1).png" alt="" loading="lazy">
+            <span>Home Builders</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </li>
+          <li class="serve-item" data-image="sampleimages/Dover_with_Royal_Island-min.jpg">
+            <img class="serve-thumb" src="sampleimages/Dover_with_Royal_Island-min.jpg" alt="" loading="lazy">
+            <span>House Flippers</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </li>
+          <li class="serve-item" data-image="sampleimages/Illume__I__Tuscany__I__Matte_Cashmere_View_1.jpg">
+            <img class="serve-thumb" src="sampleimages/Illume__I__Tuscany__I__Matte_Cashmere_View_1.jpg" alt="" loading="lazy">
+            <span>Interior Designers</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </li>
+          <li class="serve-item" data-image="sampleimages/Luna__I__Truffle_view_1_Final.jpg">
+            <img class="serve-thumb" src="sampleimages/Luna__I__Truffle_view_1_Final.jpg" alt="" loading="lazy">
+            <span>Homeowners</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </li>
+        </ul>
+
+        <div class="serve-visual">
+          <img class="serve-visual-img is-active" src="sampleimages/KK-ADU-89.jpg" alt="">
+          <img class="serve-visual-img" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials" aria-label="Client feedback">
+    <div class="container testimonials-head">
+      <p class="section-eyebrow">Client Feedback</p>
+      <h2 class="section-heading">What our <em>partners say.</em></h2>
+      <p class="section-lead">A few notes from the contractors, designers, and homeowners we've supplied.</p>
+    </div>
+
+    <div class="marquee-track">
+      <div class="marquee-row row-1">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Ordered RTA cabinets for three flips this year — every shipment arrived on time and matched the spec exactly."</p>
+          <div class="testimonial-attr">General Contractor, NJ</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"The free 3D layout made it easy to plan around our existing plumbing before we committed to an order."</p>
+          <div class="testimonial-attr">Homeowner, Kitchen Remodel</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Wholesale pricing without sacrificing build quality — solid wood doors, real plywood boxes."</p>
+          <div class="testimonial-attr">Kitchen &amp; Bath Designer</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"We've reordered twice now. The 90-day rebate made the second project an easy call."</p>
+          <div class="testimonial-attr">Property Investor</div>
+        </div>
+        <div class="marquee-clone" aria-hidden="true">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"Ordered RTA cabinets for three flips this year — every shipment arrived on time and matched the spec exactly."</p>
+            <div class="testimonial-attr">General Contractor, NJ</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"The free 3D layout made it easy to plan around our existing plumbing before we committed to an order."</p>
+            <div class="testimonial-attr">Homeowner, Kitchen Remodel</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"Wholesale pricing without sacrificing build quality — solid wood doors, real plywood boxes."</p>
+            <div class="testimonial-attr">Kitchen &amp; Bath Designer</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"We've reordered twice now. The 90-day rebate made the second project an easy call."</p>
+            <div class="testimonial-attr">Property Investor</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="marquee-row row-2">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Sample door arrived fast and let us confirm the finish before signing off with our client."</p>
+          <div class="testimonial-attr">Interior Designer</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Nationwide shipping worked flawlessly for our out-of-state rental rehab."</p>
+          <div class="testimonial-attr">House Flipper</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Support walked us through cabinet counts over the phone — the quote came back within a day."</p>
+          <div class="testimonial-attr">Remodeling Contractor</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Straightforward ordering process, and the boxes held up perfectly through a cross-country delivery."</p>
+          <div class="testimonial-attr">Home Builder</div>
+        </div>
+        <div class="marquee-clone" aria-hidden="true">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"Sample door arrived fast and let us confirm the finish before signing off with our client."</p>
+            <div class="testimonial-attr">Interior Designer</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"Nationwide shipping worked flawlessly for our out-of-state rental rehab."</p>
+            <div class="testimonial-attr">House Flipper</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"Support walked us through cabinet counts over the phone — the quote came back within a day."</p>
+            <div class="testimonial-attr">Remodeling Contractor</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"Straightforward ordering process, and the boxes held up perfectly through a cross-country delivery."</p>
+            <div class="testimonial-attr">Home Builder</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-label="Frequently asked questions">
+    <div class="container faq-grid">
+      <div class="faq-col">
+        <p class="section-eyebrow">FAQ</p>
+        <h2 class="section-heading">Questions, <em>answered.</em></h2>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What's the difference between RTA and pre-assembled cabinets?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><div><p>RTA (ready-to-assemble) ships flat-packed and goes together on-site, typically in as little as 3 business days. Pre-assembled cabinets arrive fully built, usually within 2–3 weeks. Both use the same solid wood doors and 1/2" plywood boxes.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How fast can I get a quote?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><div><p>Send your cabinet list, floor plan, or room measurements and we'll get back to you with a detailed proposal within 24 hours.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do you ship nationwide?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><div><p>Yes. Maximus Kitchens delivers to all 48 contiguous states from our New Jersey location.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Can I see a sample before I order?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><div><p>Yes — sample doors are available so you can check the finish and construction quality before committing to a full order.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What happens if I order again within 90 days?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><div><p>You'll receive up to a 10% discount on the new order, plus a rebate of up to 10% on your original order.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Who do you work with?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><div><p>Contractors, remodelers, home builders, house flippers, interior designers, and homeowners nationwide.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-media">
+        <video autoplay muted loop playsinline poster="sampleimages/Dover-Saddle-01_2026-05-01-141440_ioyw.jpg">
+          <source src="https://videos.pexels.com/video-files/3444433/3444433-hd_1920_1080_30fps.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-cta" id="contact" aria-label="Request a quote">
+    <div class="contact-cta-bg">
+      <img src="sampleimages/Dover_with_Royal_Island-min.jpg" alt="" loading="lazy">
+    </div>
+
+    <div class="container">
+      <div class="contact-cta-inner">
+        <div class="contact-cta-info">
+          <h2 class="contact-cta-title">Let's Talk About<br>Your Kitchen.</h2>
+          <div class="contact-cta-divider"></div>
+          <h3 class="contact-cta-subhead">Contact</h3>
+          <ul class="contact-cta-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <a href="mailto:maximuskitchensnj@gmail.com">maximuskitchensnj@gmail.com</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4.5 4h4l2 5-2.5 1.5a11 11 0 0 0 5.5 5.5L15 13l5 2v4a2 2 0 0 1-2 2C10.5 21 3 13.5 3 6a2 2 0 0 1 2-2z"/></svg>
+              <a href="tel:+19172821854">(917) 282-1854</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+              <span>New Jersey · Nationwide Shipping</span>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-cta-form" id="quoteForm" novalidate>
+          <h3>Get Your Free Quote</h3>
+          <label>
+            <span>Full Name</span>
+            <input type="text" name="name" required autocomplete="name">
+          </label>
+          <label>
+            <span>Phone Number</span>
+            <input type="tel" name="phone" required autocomplete="tel">
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="3" placeholder="Cabinet list, floor plan, or room measurements..."></textarea>
+          </label>
+          <button type="submit" class="contact-cta-submit">
+            Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </button>
+          <p class="form-success" role="status" aria-live="polite" hidden>Thanks — we've got it. We'll follow up within 24 hours.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <a href="#top" class="footer-logo-link" aria-label="Maximus Kitchens — Home">
+        <img src="logo/transpaent blue text logo.png" alt="Maximus Kitchens" class="footer-logo">
+      </a>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#door-styles">Door Styles</a>
+        <a href="#process">Process</a>
+        <a href="#who-we-serve">Who We Serve</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>© 2026 Maximus Kitchens. All rights reserved.</p>
+      <div class="footer-contact">
+        <a href="tel:+19172821854">(917) 282-1854</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:maximuskitchensnj@gmail.com">maximuskitchensnj@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Header background swap on scroll
+  const header = document.getElementById('siteHeader');
+  const toggleHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 40);
+  toggleHeader();
+  window.addEventListener('scroll', toggleHeader, { passive:true });
+
+  // Mobile menu toggle (basic — full menu built with nav overlay in a later pass)
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  menuToggle.addEventListener('click', () => {
+    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', String(!expanded));
+    navLinks.style.display = expanded ? 'none' : 'flex';
+  });
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Hero slideshow — directional wipe (each slide is fully opaque, so there's
+  // never a moment of two photos blending into a hazy/off-color mix)
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-slide-dot');
+  const kbVariants = ['kb-in', 'kb-pan-r', 'kb-out', 'kb-pan-l', 'kb-in'];
+  let activeSlide = -1; // no outgoing slide on the very first call
+  const SLIDE_DURATION = 6500;
+  let slideTimer;
+
+  const FADE_MS = 1400;
+
+  function showSlide(index){
+    const outgoing = slides[activeSlide];
+    const incoming = slides[index];
+    const incomingImg = incoming.querySelector('img');
+
+    // Incoming slide sits above the outgoing one and fades in on top of it —
+    // the outgoing slide stays fully opaque underneath the whole time, so
+    // the background never shows through mid-fade. Simple, smooth crossfade.
+    incoming.style.zIndex = 2;
+    if (outgoing) outgoing.style.zIndex = 1;
+
+    incomingImg.classList.remove('kb-in', 'kb-out', 'kb-pan-l', 'kb-pan-r');
+    if (!reduceMotion) {
+      void incomingImg.offsetWidth;
+      incomingImg.classList.add(kbVariants[index % kbVariants.length]);
+    }
+
+    incoming.classList.add('is-active');
+
+    if (outgoing && outgoing !== incoming) {
+      window.setTimeout(() => outgoing.classList.remove('is-active'), FADE_MS);
+    }
+
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+    activeSlide = index;
+  }
+
+  function nextSlide(){ showSlide((activeSlide + 1) % slides.length); }
+
+  showSlide(0);
+  if (!reduceMotion && slides.length > 1) {
+    slideTimer = setInterval(nextSlide, SLIDE_DURATION);
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      clearInterval(slideTimer);
+      showSlide(i);
+      if (!reduceMotion) slideTimer = setInterval(nextSlide, SLIDE_DURATION);
+    });
+  });
+
+  if (!reduceMotion) {
+    // Hero entrance
+    gsap.timeline({ defaults:{ ease:'power3.out' } })
+      .from('.hero-eyebrow', { opacity:0, y:16, duration:.7, delay:.2 })
+      .from('.hero-headline', { opacity:0, y:28, duration:.9 }, '-=.4')
+      .from('.hero-sub', { opacity:0, y:20, duration:.8 }, '-=.6')
+      .from('.hero-actions .btn', { opacity:0, y:16, duration:.6, stagger:.12 }, '-=.5')
+      .from('.hero-meta-item', { opacity:0, y:14, duration:.6, stagger:.1 }, '-=.4');
+
+    // Animated stat counters
+    document.querySelectorAll('.hero-meta-item strong').forEach(el => {
+      const raw = el.textContent.trim();
+      const match = raw.match(/\d+/);
+      if(!match) return;
+      const num = parseInt(match[0], 10);
+      const suffix = raw.replace(match[0], '');
+      const counter = { val:0 };
+      gsap.to(counter, {
+        val:num, duration:1.6, ease:'power2.out', delay:1.1,
+        onUpdate:() => el.textContent = Math.floor(counter.val) + suffix
+      });
+    });
+
+    // Trust bar — staggered fade-up as it enters the viewport
+    gsap.from('.trust-item', {
+      opacity:0, y:24, duration:.7, ease:'power3.out', stagger:.1,
+      scrollTrigger:{ trigger:'.trust-bar', start:'top 85%' }
+    });
+
+    // Why Maximus — content fades up, USP rows stagger in, image gets a slow parallax drift
+    gsap.from('.why-us .section-eyebrow, .why-us .section-heading, .why-us .section-lead', {
+      opacity:0, y:24, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.why-us', start:'top 75%' }
+    });
+    gsap.from('.why-us-points li', {
+      opacity:0, y:16, duration:.5, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.why-us-points', start:'top 85%' }
+    });
+    gsap.from('.why-us .btn', {
+      opacity:0, y:16, duration:.6, ease:'power3.out',
+      scrollTrigger:{ trigger:'.why-us .btn', start:'top 90%' }
+    });
+    gsap.to('.why-us-media img', {
+      yPercent:10, ease:'none',
+      scrollTrigger:{ trigger:'.why-us', start:'top bottom', end:'bottom top', scrub:true }
+    });
+
+    // Products — heading fades up, then each image reveals with a clip-path
+    // wipe (like a curtain lifting) while its text staggers in underneath
+    gsap.from('.products-index, .products-title, .products-lead, .products-nav', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.products', start:'top 75%' }
+    });
+    gsap.from('.product-card-media', {
+      clipPath:'inset(100% 0% 0% 0%)', duration:1, ease:'power3.out', stagger:.15,
+      clearProps:'clipPath',
+      scrollTrigger:{ trigger:'.products-swiper', start:'top 82%' }
+    });
+    // clearProps removes GSAP's inline transform once the reveal finishes —
+    // otherwise that inline style outranks the CSS :hover zoom and hover does nothing.
+    gsap.from('.product-card-media img', {
+      scale:1.25, duration:1.2, ease:'power3.out', stagger:.15,
+      clearProps:'transform',
+      scrollTrigger:{ trigger:'.products-swiper', start:'top 82%' }
+    });
+    gsap.from('.product-card h3, .product-card p, .product-card-link', {
+      opacity:0, y:16, duration:.6, ease:'power3.out', stagger:.06,
+      scrollTrigger:{ trigger:'.products-swiper', start:'top 75%' }
+    });
+  }
+
+  // Products slider — 3 visible on desktop, 1 (peeking 2nd) on mobile, loops infinitely
+  if (window.Swiper && document.querySelector('.products-swiper')) {
+    new Swiper('.products-swiper', {
+      loop:true,
+      slidesPerView:1.15,
+      spaceBetween:0,
+      speed:600,
+      navigation:{ nextEl:'.products-next', prevEl:'.products-prev' },
+      breakpoints:{
+        700:{ slidesPerView:2 },
+        1020:{ slidesPerView:3 }
+      }
+    });
+  }
+
+  // Door Styles — flat, edge-to-edge photo gallery slider
+  if (window.Swiper && document.querySelector('.door-styles-swiper')) {
+    new Swiper('.door-styles-swiper', {
+      grabCursor:true,
+      loop:true,
+      spaceBetween:0,
+      slidesPerView:1.15,
+      navigation:{ nextEl:'.door-styles-next', prevEl:'.door-styles-prev' },
+      breakpoints:{
+        700:{ slidesPerView:2 },
+        1020:{ slidesPerView:3 }
+      }
+    });
+  }
+
+  if (!reduceMotion) {
+    gsap.from('.door-styles-head > *', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.door-styles', start:'top 78%' }
+    });
+
+    gsap.from('.process-video-content > *', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.process-video', start:'top 75%' }
+    });
+    gsap.from('.process-video-media', {
+      opacity:0, scale:.96, duration:.8, ease:'power3.out',
+      scrollTrigger:{ trigger:'.process-video', start:'top 75%' }
+    });
+
+    gsap.from('.serve-head > *', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.who-we-serve', start:'top 78%' }
+    });
+    gsap.from('.serve-item', {
+      opacity:0, y:16, duration:.5, ease:'power3.out', stagger:.07,
+      scrollTrigger:{ trigger:'.serve-list', start:'top 85%' }
+    });
+
+    gsap.from('.testimonials-head > *', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.testimonials', start:'top 78%' }
+    });
+    gsap.from('.faq .section-eyebrow, .faq .section-heading', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.faq', start:'top 78%' }
+    });
+    gsap.from('.faq-item', {
+      opacity:0, y:16, duration:.5, ease:'power3.out', stagger:.06,
+      scrollTrigger:{ trigger:'.faq-list', start:'top 85%' }
+    });
+    gsap.from('.faq-media', {
+      opacity:0, scale:.96, duration:.8, ease:'power3.out',
+      scrollTrigger:{ trigger:'.faq', start:'top 75%' }
+    });
+
+    gsap.from('.contact-cta-info > *', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.contact-cta', start:'top 78%' }
+    });
+    gsap.from('.contact-cta-form', {
+      opacity:0, y:28, duration:.7, ease:'power3.out',
+      scrollTrigger:{ trigger:'.contact-cta', start:'top 78%' }
+    });
+  }
+
+  // Quote form — front-end only for now (no backend wired up yet)
+  const quoteForm = document.getElementById('quoteForm');
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!quoteForm.checkValidity()) {
+        quoteForm.reportValidity();
+        return;
+      }
+      quoteForm.querySelector('.form-success').hidden = false;
+      quoteForm.querySelectorAll('input, textarea').forEach(field => { field.value = ''; });
+    });
+  }
+
+  // FAQ accordion — one open at a time
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq-item.is-open').forEach(open => {
+        open.classList.remove('is-open');
+        open.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Who We Serve — hovering a row crossfades the image panel beside the list.
+  // Two stacked <img> layers swap which is on top; the outgoing image stays
+  // visible until the incoming one has actually loaded, so there's never a
+  // blank/white flash mid-transition — images are also preloaded up front.
+  const serveItems = document.querySelectorAll('.serve-item');
+  const serveVisualImgs = document.querySelectorAll('.serve-visual-img');
+  if (serveItems.length && serveVisualImgs.length === 2) {
+    let serveActiveSrc = serveVisualImgs[0].getAttribute('src');
+    const preloaded = {};
+
+    // Preload every hover image now so later swaps are instant.
+    serveItems.forEach(item => {
+      const src = item.getAttribute('data-image');
+      if (!src || preloaded[src]) return;
+      preloaded[src] = new Image();
+      preloaded[src].src = src;
+    });
+
+    serveItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const src = item.getAttribute('data-image');
+        if (!src || src === serveActiveSrc) return;
+        serveActiveSrc = src;
+
+        const current = [...serveVisualImgs].find(img => img.classList.contains('is-active'));
+        const next = [...serveVisualImgs].find(img => img !== current);
+
+        const activateNext = () => {
+          next.classList.add('is-active');
+          if (current) current.classList.remove('is-active');
+        };
+
+        if (preloaded[src] && preloaded[src].complete) {
+          next.src = src;
+          activateNext();
+        } else {
+          next.src = src;
+          next.onload = activateNext;
+        }
+      });
+    });
+  }
+
+  // Respect reduced-motion: don't force an autoplaying video on users who've
+  // asked for less motion — pause it and let them start it manually instead.
+  const processVideo = document.querySelector('.process-video-media video');
+  if (processVideo && reduceMotion) {
+    processVideo.removeAttribute('autoplay');
+    processVideo.pause();
+    processVideo.setAttribute('controls', '');
+  }
+  const faqVideo = document.querySelector('.faq-media video');
+  if (faqVideo && reduceMotion) {
+    faqVideo.removeAttribute('autoplay');
+    faqVideo.pause();
+    faqVideo.setAttribute('controls', '');
+  }
+</script>
+
+</body>
+</html>
