@@ -1,5 +1,5 @@
 # Maximus Kitchens — Master Creative Brief
-*Reference doc for building 3 homepage design concepts. Read this before starting/resuming any section.*
+*Reference doc for building the Maximus Kitchens homepage (Concept 1 — "The Atelier", the only concept in scope). Read this before starting/resuming any section.*
 
 ---
 
@@ -43,7 +43,7 @@
 | Warm white | `#FFF6FA` | Alternate section backgrounds instead of stark white, adds warmth |
 | White / Black | — | Base text, cards, structure |
 
-## 4. Tech Stack (all 3 concepts)
+## 4. Tech Stack
 
 - Plain HTML5 / CSS3 (custom properties for the palette) / vanilla JS — no build step, no framework
 - **GSAP + ScrollTrigger** (CDN) — scroll reveals, parallax, counters
@@ -52,33 +52,27 @@
 - Accessibility: semantic landmarks, alt text on every image, visible focus states, full keyboard nav, WCAG AA contrast
 - Mobile-first responsive, fully cross-device
 
-## 5. Shared Section Journey (all 3 concepts, content emphasis differs by tone)
+## 5. Section Journey (as built, in `index.html`)
 
-1. Hero (headline + CTA + visual)
-2. Trust bar / stats (20 yrs, nationwide, stats)
-3. Why Maximus / USPs
-4. Products overview (RTA, Pre-Assembled, Styles)
-5. Door styles gallery (Shaker, Slab, Raised Panel, Inset, Transitional, Modern, Traditional)
-6. Featured Collections (real sample images, named per file above)
-7. How It Works / process (send list → 24-hr proposal → optional virtual consult)
-8. Who We Serve (contractors, designers, flippers, builders, homeowners)
-9. Testimonials / social proof
-10. Repeat-order incentive banner (10% discount + 10% rebate, 90 days)
-11. Free 3D Kitchen Layout CTA
-12. FAQ
-13. Final CTA + quote form
-14. Footer
+1. ✅ Hero (slideshow, headline, CTA, stat counters)
+2. ✅ Trust bar / stats (20 yrs, nationwide, mobile card-swipe)
+3. ✅ Why Maximus / USPs (split-screen, checklist)
+4. ✅ Products overview (RTA, Pre-Assembled, Styles — dark divider-line slider)
+5. ✅ Door styles gallery (flat edge-to-edge photo slider)
+6. ✅ How It Works / process — built as an autoplaying video showcase section (dark, no slider); also carries the "free 3D layout" messaging, so no separate Featured Collections or 3D Layout CTA section was built
+7. ✅ Who We Serve (contractors, designers, flippers, builders, homeowners — text-list with hover/tap image reveal)
+8. ✅ Testimonials / social proof (dual-row marquee, placeholder quotes — needs real reviews)
+9. ✅ FAQ (accordion, two-column with video)
+10. ✅ Final CTA + quote form (full-bleed image, contact info + form)
+11. ✅ Footer
 
-## 6. The 3 Concepts
+**Note**: the original plan listed Featured Collections, a separate Repeat-Order Incentive Banner, and a separate Free 3D Layout CTA as their own sections. Per user decision, Featured Collections was dropped (avoiding a third slider on the page), and the repeat-order offer / 3D layout messaging were folded into existing sections instead of getting dedicated banners. Revisit only if the client wants those offers called out more prominently.
 
-### Concept 1 — "The Atelier" (Luxury Designer)
-Editorial/magazine style. Full-bleed hero photography, split-screen sections (image | text), generous whitespace, serif display type + clean sans body, slow scroll-reveals, subtle parallax. Audience: designers/homeowners wanting bespoke high-end cabinetry.
+## 6. The Concept
 
-### Concept 2 — "The Trade Standard" (Contractor/Wholesale-First)
-Bold, fast, data-forward. Grid-driven layout, comparison tables (door styles × construction specs), stat counters, dual-path nav ("For Contractors" / "For Homeowners") in the hero itself. Built to convert bulk/repeat B2B buyers fast.
+**Concept 1 — "The Atelier" (Luxury Designer)** is the only concept in scope — the client approved it and does not want Concepts 2 or 3 built.
 
-### Concept 3 — "Modern Showroom" (Cinematic/Dark Luxury)
-Dark navy-dominant background, oversized bold type, asymmetric grid, cinematic scroll-triggered reveals, hero video-ready, cursor micro-interactions. Most dramatic, most "million-dollar at first glance."
+Editorial/magazine style. Full-bleed hero photography, split-screen sections (image | text), generous whitespace, bold display sans (Manrope) + clean sans body (Inter), slow scroll-reveals, subtle parallax. Audience: designers/homeowners wanting bespoke high-end cabinetry.
 
 ## 7. Competitor Research Takeaways
 
@@ -88,6 +82,6 @@ Dark navy-dominant background, oversized bold type, asymmetric grid, cinematic s
 
 ## 8. Process
 
-- Build **one concept fully at a time**, **one section at a time** within it, as separate self-contained HTML files (e.g. `concept-1-atelier.html`, `concept-2-trade-standard.html`, `concept-3-modern-showroom.html`)
-- Content per section written fresh (SEO copywriter voice) using only facts from §1 — user reviews/edits each section as we go
-- Order of build: Concept 1 → review → Concept 2 → review → Concept 3 → review
+- Single concept, single file — `index.html` is both the working source and the deployed file, no copies to keep in sync
+- Refine **one section at a time**; content written fresh (SEO copywriter voice) using only facts from §1 — user reviews/edits each section as we go
+- Git pushes/deploys are handled by the user themselves via their editor extension — do not push unless explicitly asked
