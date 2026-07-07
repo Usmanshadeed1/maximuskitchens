@@ -56,7 +56,7 @@
   }
   .logo{ display:flex; align-items:center; line-height:0; }
   .site-header .logo img{
-    display:block; height:41px; width:auto;
+    display:block; height:45px; width:auto;
     filter:brightness(0) invert(1);
     transition:filter .3s var(--ease);
   }
@@ -939,6 +939,33 @@
     .about-process-step:last-child{ border-right:none; padding-right:0; }
   }
 
+  /* ---------- Repeat-Order (Home page — warm-white band with elevated
+     card-style stats, sitting between How It Works (dark) and Who We Serve
+     (white) to keep the dark/light rhythm from stacking two dark sections
+     back to back. Deliberately different visual treatment from the navy
+     divided-stat version on Who We Serve. ---------- */
+  .home-repeat{ background:var(--warm-white); padding:clamp(5rem,11vh,8rem) 0 clamp(4.5rem,10vh,7rem); }
+  .home-repeat-inner{ display:grid; grid-template-columns:1fr; gap:clamp(2.75rem,6vh,3.5rem); align-items:center; }
+  .home-repeat-head .section-lead{ margin-bottom:1.75rem; }
+
+  .home-repeat-cards{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; align-items:stretch; }
+  .home-repeat-card{
+    background:var(--white); box-shadow:0 20px 48px rgba(8,30,68,.1);
+    padding:clamp(1.75rem,4vw,2.5rem) clamp(1.5rem,3vw,2rem);
+    display:flex; flex-direction:column; justify-content:flex-start; gap:.5rem;
+    transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  .home-repeat-card:hover{ transform:translateY(-4px); box-shadow:0 26px 56px rgba(8,30,68,.16); }
+  .home-repeat-card strong{
+    font-family:var(--font-display); font-weight:700; color:var(--indigo);
+    font-size:clamp(2.2rem,5vw,3rem); line-height:1;
+  }
+  .home-repeat-card span{ font-size:.85rem; color:rgba(8,30,68,.65); line-height:1.4; }
+
+  @media(min-width:860px){
+    .home-repeat-inner{ grid-template-columns:1.1fr 1fr; gap:4.5rem; }
+  }
+
   /* ---------- Repeat-Order Program (Who We Serve page — dark navy band,
      open to any returning customer, not framed as trade-only). ---------- */
   .repeat-program{ background:var(--navy); padding:clamp(5rem,11vh,8rem) 0 clamp(4.5rem,10vh,7rem); color:var(--white); }
@@ -1053,10 +1080,8 @@
   .marquee-row{ display:flex; gap:1.25rem; width:max-content; }
   .marquee-clone{ display:flex; gap:1.25rem; }
   .marquee-row.row-1{ animation:marqueeLeft 46s linear infinite; }
-  .marquee-row.row-2{ animation:marqueeRight 46s linear infinite; }
   .marquee-track:hover .marquee-row{ animation-play-state:paused; }
   @keyframes marqueeLeft{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
-  @keyframes marqueeRight{ from{ transform:translateX(-50%); } to{ transform:translateX(0); } }
 
   .testimonial-card{
     flex:0 0 auto; width:min(85vw,340px); background:rgba(255,255,255,.05);
@@ -1205,6 +1230,11 @@
     .why-us-content{ padding:2.75rem clamp(1.5rem,6vw,3.5rem); }
     .door-styles{ padding:2.75rem 0; }
     .process-video{ padding:2.75rem 0; }
+    .home-repeat{ padding:2.75rem 0; }
+    .home-repeat-cards{ gap:.85rem; }
+    .home-repeat-card{ padding:1.5rem 1.15rem; }
+    .home-repeat-card strong{ font-size:1.6rem; white-space:nowrap; }
+    .home-repeat-card span{ font-size:.78rem; }
     .who-we-serve{ padding:2.75rem 0; }
     .testimonials{ padding:2.75rem 0; }
     .faq{ padding:2.75rem 0; }

@@ -28,7 +28,7 @@ Every page shares the same `<header>`, mobile drawer nav, and `<footer>` markup,
 
 ## Pages
 
-**Home** (`index.html`) — Hero slideshow, trust bar, Why Maximus, Products overview, Door Styles gallery, How It Works (video), Who We Serve, Testimonials, FAQ, Contact/quote form, footer.
+**Home** (`index.html`) — Hero slideshow, trust bar, Why Maximus, Products overview, Door Styles gallery, How It Works (video), Repeat-Order Program, Who We Serve, Testimonials, FAQ, Contact/quote form, footer.
 
 **Contact** (`contact.html`) — Page banner, trust strip, contact info + quote form, FAQ.
 

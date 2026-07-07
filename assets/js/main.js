@@ -384,6 +384,15 @@
       scrollTrigger:{ trigger:'.process-video', start:'top 75%' }
     });
 
+    gsap.from('.home-repeat-head > *', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.home-repeat', start:'top 78%' }
+    });
+    gsap.from('.home-repeat-card', {
+      opacity:0, y:24, duration:.6, ease:'power3.out', stagger:.12,
+      scrollTrigger:{ trigger:'.home-repeat-cards', start:'top 82%' }
+    });
+
     gsap.from('.serve-head > *', {
       opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
       scrollTrigger:{ trigger:'.who-we-serve', start:'top 78%' }
