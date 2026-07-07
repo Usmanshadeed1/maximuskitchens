@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Maximus Kitchens — Cabinet Collections &amp; Finishes</title>
+<meta name="description" content="Browse real kitchen cabinetry from Maximus Kitchens — every collection, door style, and finish we supply wholesale, nationwide.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="sampleimages/Allure_I_Galaxy_I_Frost___Forest_Green_-_View_2.jpg" fetchpriority="high">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site-header" id="siteHeader">
+  <a href="index.html" class="logo" aria-label="Maximus Kitchens — Home">
+    <img src="logo/transpaent blue text logo.png" alt="Maximus Kitchens logo">
+  </a>
+
+  <nav class="main-nav" aria-label="Primary">
+    <div class="nav-links">
+      <ul>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="door-styles.html">Door Styles</a></li>
+        <li><a href="who-we-serve.html">Who We Serve</a></li>
+        <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <a href="contact.html" class="btn btn-primary nav-cta">Free Consultation</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<div class="drawer-overlay" id="drawerOverlay" hidden></div>
+<div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="mobile-drawer-head">
+    <a href="index.html" class="logo" aria-label="Maximus Kitchens — Home">
+      <img src="logo/transpaent blue text logo.png" alt="Maximus Kitchens logo">
+    </a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-drawer-nav" aria-label="Mobile">
+    <ul>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="door-styles.html">Door Styles</a></li>
+      <li><a href="who-we-serve.html">Who We Serve</a></li>
+      <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-drawer-foot">
+    <a href="contact.html" class="btn btn-primary">Free Consultation</a>
+    <a href="tel:+19172821854" class="mobile-drawer-phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4.5 4h4l2 5-2.5 1.5a11 11 0 0 0 5.5 5.5L15 13l5 2v4a2 2 0 0 1-2 2C10.5 21 3 13.5 3 6a2 2 0 0 1 2-2z"/></svg>
+      (917) 282-1854
+    </a>
+  </div>
+</div>
+
+<main id="main">
+  <section class="page-banner" aria-label="Maximus Kitchens gallery">
+    <div class="page-banner-bg">
+      <img src="sampleimages/Allure_I_Galaxy_I_Frost___Forest_Green_-_View_2.jpg"
+           alt="Allure Galaxy Frost cabinet collection in a Shaker-style kitchen"
+           fetchpriority="high" loading="eager" decoding="async">
+    </div>
+    <div class="page-banner-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Gallery</span>
+      </nav>
+      <h1 class="page-banner-title">See it before you build it.</h1>
+      <p class="page-banner-lead">A closer look at the collections, finishes, and installations we supply wholesale, nationwide.</p>
+    </div>
+  </section>
+
+  <section class="gallery-grid-section" aria-label="Cabinet gallery">
+    <div class="container">
+      <div class="gallery-filters" role="tablist" aria-label="Filter gallery by door style">
+        <button class="gallery-filter is-active" data-filter="all">All</button>
+        <button class="gallery-filter" data-filter="shaker">Shaker</button>
+        <button class="gallery-filter" data-filter="raised-panel">Raised Panel</button>
+        <button class="gallery-filter" data-filter="inset">Inset</button>
+        <button class="gallery-filter" data-filter="slab">Slab</button>
+        <button class="gallery-filter" data-filter="transitional">Transitional</button>
+        <button class="gallery-filter" data-filter="modern">Modern</button>
+        <button class="gallery-filter" data-filter="traditional">Traditional</button>
+        <button class="gallery-filter" data-filter="two-tone">Two-Tone</button>
+      </div>
+
+      <div class="gallery-grid">
+        <button class="gallery-item" data-category="shaker" data-index="0" aria-label="Open image 1 of 22">
+          <img src="sampleimages/Cunningham-White.webp" alt="Cunningham White cabinet collection, Shaker style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Shaker</span>
+        </button>
+        <button class="gallery-item" data-category="slab" data-index="1" aria-label="Open image 2 of 22">
+          <img src="sampleimages/Dover_with_Royal_Island-min.jpg" alt="Dover collection kitchen with navy island, Slab style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Slab</span>
+        </button>
+        <button class="gallery-item" data-category="raised-panel" data-index="2" aria-label="Open image 3 of 22">
+          <img src="sampleimages/Allure__I__Fusion__I__Timber.png" alt="Allure Fusion Timber cabinet collection, Raised Panel style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Raised Panel</span>
+        </button>
+        <button class="gallery-item" data-category="modern" data-index="3" aria-label="Open image 4 of 22">
+          <img src="sampleimages/Illume__I__Catalina__I__Nocce_1_View_1.jpg" alt="Illume Catalina Nocce cabinet collection, Modern style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Modern</span>
+        </button>
+        <button class="gallery-item" data-category="transitional" data-index="4" aria-label="Open image 5 of 22">
+          <img src="sampleimages/Echo__I__Timber_Dove_and_Indigo_v2.jpg" alt="Echo Timber Dove and Indigo cabinet collection, Transitional style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Transitional</span>
+        </button>
+        <button class="gallery-item" data-category="traditional" data-index="5" aria-label="Open image 6 of 22">
+          <img src="sampleimages/Monroe-Cream-Glaze.webp" alt="Monroe Cream Glaze cabinet collection, Traditional style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Traditional</span>
+        </button>
+        <button class="gallery-item" data-category="inset" data-index="6" aria-label="Open image 7 of 22">
+          <img src="sampleimages/Augusta_1800.jpg" alt="Augusta 1800 cabinet collection, Inset style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Inset</span>
+        </button>
+        <button class="gallery-item" data-category="two-tone" data-index="7" aria-label="Open image 8 of 22">
+          <img src="sampleimages/SW_Capital_Series_Card.webp" alt="SW Capital Series cabinet collection, Two-Tone style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Two-Tone</span>
+        </button>
+        <button class="gallery-item" data-category="slab" data-index="8" aria-label="Open image 9 of 22">
+          <img src="sampleimages/Dover-Saddle-01_2026-05-01-141440_ioyw.jpg" alt="Dover Saddle finish cabinetry, Slab style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Slab</span>
+        </button>
+        <button class="gallery-item" data-category="shaker" data-index="9" aria-label="Open image 10 of 22">
+          <img src="sampleimages/Espresso-Shaker.webp" alt="Espresso Shaker cabinet collection, dark finish" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Shaker</span>
+        </button>
+        <button class="gallery-item" data-category="modern" data-index="10" aria-label="Open image 11 of 22">
+          <img src="sampleimages/Illume__I__Tuscany__I__Matte_Cashmere_View_1.jpg" alt="Illume Tuscany matte cashmere cabinet collection, Modern style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Modern</span>
+        </button>
+        <button class="gallery-item" data-category="transitional" data-index="11" aria-label="Open image 12 of 22">
+          <img src="sampleimages/Echo__I__Timber___Dove_View_1.jpg" alt="Echo Timber and Dove cabinet collection, Transitional style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Transitional</span>
+        </button>
+        <button class="gallery-item" data-category="traditional" data-index="12" aria-label="Open image 13 of 22">
+          <img src="sampleimages/Kitchen3_Hallmark_Frost.jpg" alt="Hallmark Frost finish kitchen cabinetry, Traditional style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Traditional</span>
+        </button>
+        <button class="gallery-item" data-category="raised-panel" data-index="13" aria-label="Open image 14 of 22">
+          <img src="sampleimages/Hamilton-Walnut.webp" alt="Hamilton Walnut cabinet collection, Raised Panel style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Raised Panel</span>
+        </button>
+        <button class="gallery-item" data-category="slab" data-index="14" aria-label="Open image 15 of 22">
+          <img src="sampleimages/sleek-white-saddle-2.jpg" alt="Sleek white saddle-finish cabinetry, Slab style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Slab</span>
+        </button>
+        <button class="gallery-item" data-category="transitional" data-index="15" aria-label="Open image 16 of 22">
+          <img src="sampleimages/Allure__I__Luxe__I__Canyon_Oak_-_view_2.png" alt="Allure Luxe Canyon Oak cabinet collection, Transitional style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Transitional</span>
+        </button>
+        <button class="gallery-item" data-category="modern" data-index="16" aria-label="Open image 17 of 22">
+          <img src="sampleimages/Luxor-Kitchen-_-View-UPDATE.jpg" alt="Luxor kitchen, Modern style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Modern</span>
+        </button>
+        <button class="gallery-item" data-category="traditional" data-index="17" aria-label="Open image 18 of 22">
+          <img src="sampleimages/Luna__I__Truffle_view_1_Final.jpg" alt="Luna Truffle cabinet collection, Traditional style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Traditional</span>
+        </button>
+        <button class="gallery-item" data-category="slab" data-index="18" aria-label="Open image 19 of 22">
+          <img src="sampleimages/Jansen-Frost-Cabinet-ProSelect.webp" alt="Jansen Frost cabinet collection, Slab style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Slab</span>
+        </button>
+        <button class="gallery-item" data-category="shaker" data-index="19" aria-label="Open image 20 of 22">
+          <img src="sampleimages/Allure_I_Galaxy_I_Frost___Forest_Green_-_View_2.jpg" alt="Allure Galaxy Frost Forest Green cabinet collection, Shaker style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Shaker</span>
+        </button>
+        <button class="gallery-item" data-category="traditional" data-index="20" aria-label="Open image 21 of 22">
+          <img src="sampleimages/New Project.png" alt="Traditional style kitchen cabinetry in warm wood finish" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Traditional</span>
+        </button>
+        <button class="gallery-item" data-category="transitional" data-index="21" aria-label="Open image 22 of 22">
+          <img src="sampleimages/KK-ADU-89.jpg" alt="Kitchen layout with custom cabinetry, Transitional style" loading="lazy" decoding="async">
+          <span class="gallery-item-label">Transitional</span>
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="lightbox" id="lightbox" hidden aria-hidden="true">
+  <p class="lightbox-caption" id="lightboxCaption"></p>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close gallery">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <div class="swiper lightbox-swiper">
+    <div class="swiper-wrapper"></div>
+  </div>
+  <button class="lightbox-prev" aria-label="Previous image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 6 9 12l8 6"/></svg>
+  </button>
+  <button class="lightbox-next" aria-label="Next image">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l8 6-8 6"/></svg>
+  </button>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <a href="index.html" class="footer-logo-link" aria-label="Maximus Kitchens — Home">
+        <img src="logo/transpaent blue text logo.png" alt="Maximus Kitchens" class="footer-logo">
+      </a>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="products.html">Products</a>
+        <a href="door-styles.html">Door Styles</a>
+        <a href="who-we-serve.html">Who We Serve</a>
+        <a href="gallery.html" aria-current="page">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>© 2026 Maximus Kitchens. All rights reserved.</p>
+      <div class="footer-contact">
+        <a href="tel:+19172821854">(917) 282-1854</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:maximuskitchens1@gmail.com">maximuskitchens1@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

@@ -396,7 +396,7 @@
   .breadcrumb span[aria-current]{ color:var(--white); font-weight:600; }
   .page-banner-title{
     font-family:var(--font-display); font-weight:700; color:var(--white);
-    font-size:clamp(2.2rem,5vw,3.4rem); line-height:1.1; margin:0 0 1rem; max-width:16ch;
+    font-size:clamp(2.2rem,5vw,3.4rem); line-height:1.1; margin:0 0 1rem; max-width:20ch;
   }
   .page-banner-lead{
     font-size:clamp(1rem,1.4vw,1.15rem); color:rgba(255,255,255,.85);
@@ -699,10 +699,17 @@
      needs no redesign). ---------- */
   .style-grid-section{ background:var(--white); padding:clamp(5rem,11vh,8rem) 0 clamp(4.5rem,10vh,7rem); }
   .style-grid-head{ max-width:640px; margin:0 0 clamp(2.5rem,6vh,3.5rem); }
-  .style-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:clamp(1.75rem,3vw,2.25rem); }
-  .style-grid-item{ border:1px solid rgba(8,30,68,.12); transition:border-color .3s var(--ease); }
-  .style-grid-item:hover{ border-color:var(--indigo); }
-  .style-grid-media{ position:relative; overflow:hidden; aspect-ratio:4/3; }
+  .style-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
+  .style-grid-item{
+    background:var(--white); box-shadow:0 14px 32px rgba(8,30,68,.1);
+    transition:box-shadow .3s var(--ease), transform .3s var(--ease);
+  }
+  .style-grid-item:hover{ box-shadow:0 20px 44px rgba(8,30,68,.16); transform:translateY(-3px); }
+
+  @media(min-width:640px){
+    .style-grid{ grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:clamp(1.75rem,3vw,2.25rem); }
+  }
+  .style-grid-media{ position:relative; overflow:hidden; height:clamp(160px,26vw,240px); }
   .style-grid-media img{
     position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
     transition:transform .6s var(--ease);
@@ -713,6 +720,179 @@
     font-family:var(--font-display); font-size:1.2rem; font-weight:700; color:var(--navy); margin:0 0 .5rem;
   }
   .style-grid-item p{ font-size:.92rem; line-height:1.6; color:rgba(8,30,68,.65); margin:0; }
+
+  /* ---------- Audience Selector (Who We Serve page — interactive tabs,
+     deliberately different interaction pattern from the card grids on
+     Products/Door Styles. All 6 panels exist in the DOM; JS just toggles
+     which one is visible, matching the declarative toggle pattern already
+     used by the FAQ accordion and hero slideshow elsewhere in the file). ---------- */
+  .audience-selector{ background:var(--white); padding:clamp(5rem,11vh,8rem) 0 clamp(4.5rem,10vh,7rem); }
+  .audience-head{ max-width:640px; margin:0 0 clamp(2.5rem,6vh,3rem); }
+
+  .audience-tabs-wrap{
+    border-bottom:1px solid rgba(8,30,68,.12);
+    padding-bottom:clamp(1.25rem,4vh,2.5rem);
+    margin-bottom:clamp(2.5rem,5vh,3rem);
+  }
+  .audience-tabs{
+    display:flex; flex-wrap:nowrap; gap:.6rem;
+    margin:0 calc(-1 * clamp(1.25rem,5vw,3rem));
+    padding:0 clamp(1.25rem,5vw,3rem);
+    overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+  }
+  .audience-tabs::-webkit-scrollbar{ display:none; }
+  .audience-tabs-hint{ display:none; }
+  .audience-tab{
+    background:none; border:1px solid rgba(8,30,68,.18); color:var(--navy);
+    padding:.65rem 1.25rem; font-size:.85rem; font-weight:600; letter-spacing:.02em;
+    white-space:nowrap; flex:0 0 auto;
+    cursor:pointer; transition:background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+  }
+  .audience-tab:hover{ border-color:var(--indigo); color:var(--indigo); }
+  .audience-tab.is-active{ background:var(--navy); color:var(--white); border-color:var(--navy); }
+
+  .audience-panel{ display:none; grid-template-columns:1fr; gap:2.5rem; }
+  .audience-panel.is-active{ display:grid; animation:audienceFadeIn .5s var(--ease); }
+  @keyframes audienceFadeIn{
+    from{ opacity:0; transform:translateY(14px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+  .audience-panel-media{ position:relative; overflow:hidden; aspect-ratio:4/3; }
+  .audience-panel-media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .audience-panel-content h3{
+    font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2.1rem); font-weight:700; color:var(--navy);
+    margin:0 0 1rem;
+  }
+  .audience-panel-content p{
+    font-size:1.02rem; line-height:1.7; color:rgba(8,30,68,.72); margin:0 0 1.5rem; max-width:52ch;
+  }
+  .audience-panel-points{ list-style:none; margin:0 0 2rem; padding:0; display:flex; flex-direction:column; gap:.75rem; }
+  .audience-panel-points li{
+    display:flex; align-items:flex-start; gap:.65rem; font-size:.95rem; color:rgba(8,30,68,.8); line-height:1.5;
+  }
+  .audience-panel-points svg{ width:18px; height:18px; flex:0 0 auto; margin-top:.15rem; stroke:var(--indigo); }
+
+  @media(min-width:860px){
+    .audience-panel{ grid-template-columns:1fr 1fr; align-items:center; gap:3.5rem; }
+  }
+
+  /* ---------- Gallery Grid + Filters ---------- */
+  .gallery-grid-section{ background:var(--white); padding:clamp(4rem,9vh,6rem) 0 clamp(5rem,11vh,8rem); }
+  .gallery-filters{
+    display:flex; flex-wrap:nowrap; gap:.6rem;
+    overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+    margin:0 calc(-1 * clamp(1.25rem,5vw,3rem)) clamp(2.5rem,5vh,3rem);
+    padding:0 clamp(1.25rem,5vw,3rem) .5rem;
+  }
+  .gallery-filters::-webkit-scrollbar{ display:none; }
+  .gallery-filter{
+    background:none; border:1px solid rgba(8,30,68,.18); color:var(--navy);
+    padding:.6rem 1.15rem; font-size:.82rem; font-weight:600; letter-spacing:.02em;
+    white-space:nowrap; flex:0 0 auto; cursor:pointer;
+    transition:background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+  }
+  .gallery-filter:hover{ border-color:var(--indigo); color:var(--indigo); }
+  .gallery-filter.is-active{ background:var(--navy); color:var(--white); border-color:var(--navy); }
+
+  .gallery-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:.75rem; }
+  .gallery-item{
+    position:relative; overflow:hidden; aspect-ratio:4/5; border:none; padding:0;
+    background:none; cursor:pointer; display:block; width:100%;
+  }
+  .gallery-item img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    transition:transform .6s var(--ease);
+  }
+  .gallery-item:hover img{ transform:scale(1.06); }
+  .gallery-item::after{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(0deg, rgba(8,30,68,.6) 0%, rgba(8,30,68,0) 48%);
+    opacity:0; transition:opacity .3s var(--ease);
+  }
+  .gallery-item:hover::after{ opacity:1; }
+  .gallery-item-label{
+    position:absolute; left:.9rem; bottom:.85rem; z-index:1; color:var(--white);
+    font-size:.82rem; font-weight:600; letter-spacing:.02em;
+    opacity:0; transform:translateY(6px); transition:opacity .3s var(--ease), transform .3s var(--ease);
+  }
+  .gallery-item:hover .gallery-item-label{ opacity:1; transform:translateY(0); }
+
+  @media(min-width:640px){ .gallery-grid{ grid-template-columns:repeat(3,1fr); } }
+  @media(min-width:1020px){ .gallery-grid{ grid-template-columns:repeat(4,1fr); } }
+
+  /* ---------- Gallery Lightbox (Swiper-powered, swipeable on mobile) ---------- */
+  .lightbox{
+    position:fixed; inset:0; z-index:300; background:rgba(8,30,68,.96);
+    opacity:0; pointer-events:none; transition:opacity .35s var(--ease);
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .lightbox.is-open{ opacity:1; pointer-events:auto; }
+  .lightbox-caption{
+    position:absolute; top:clamp(1rem,3vw,2rem); left:clamp(1rem,3vw,2rem); z-index:2;
+    color:var(--white); font-size:.78rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.25);
+    padding:.55rem 1rem; margin:0;
+  }
+  .lightbox-close{
+    position:absolute; top:clamp(1rem,3vw,2rem); right:clamp(1rem,3vw,2rem); z-index:2;
+    width:44px; height:44px; border-radius:50%; border:1px solid rgba(255,255,255,.3);
+    background:rgba(255,255,255,.06); color:var(--white); display:flex; align-items:center; justify-content:center;
+    transition:background .25s var(--ease);
+  }
+  .lightbox-close:hover{ background:rgba(255,255,255,.16); }
+  .lightbox-close svg{ width:18px; height:18px; }
+
+  .lightbox-swiper{ width:100%; height:100%; }
+  .lightbox-swiper .swiper-slide{ display:flex; align-items:center; justify-content:center; height:100%; }
+
+  @media(max-width:600px){
+    .lightbox-swiper .swiper-slide{ align-items:initial; }
+  }
+  .lightbox-swiper .swiper-slide img{
+    max-width:88vw; max-height:82vh; width:auto; height:auto; object-fit:contain;
+  }
+  .lightbox-prev, .lightbox-next{
+    position:absolute; top:50%; transform:translateY(-50%); z-index:2;
+    width:44px; height:44px; border-radius:50%; border:1px solid rgba(255,255,255,.3);
+    background:rgba(255,255,255,.06); color:var(--white); display:flex; align-items:center; justify-content:center;
+    transition:background .25s var(--ease);
+  }
+  .lightbox-prev:hover, .lightbox-next:hover{ background:rgba(255,255,255,.16); }
+  .lightbox-prev{ left:clamp(.75rem,2vw,1.5rem); }
+  .lightbox-next{ right:clamp(.75rem,2vw,1.5rem); }
+  .lightbox-prev svg, .lightbox-next svg{ width:20px; height:20px; }
+
+  @media(max-width:600px){
+    .lightbox-prev, .lightbox-next{ display:none; }
+  }
+
+  /* ---------- Repeat-Order Program (Who We Serve page — dark navy band,
+     open to any returning customer, not framed as trade-only). ---------- */
+  .repeat-program{ background:var(--navy); padding:clamp(5rem,11vh,8rem) 0 clamp(4.5rem,10vh,7rem); color:var(--white); }
+  .repeat-program-inner{
+    display:grid; grid-template-columns:1fr; gap:clamp(2.75rem,6vh,3.5rem); align-items:center;
+  }
+  .repeat-program-head .section-eyebrow{ color:var(--indigo); }
+  .repeat-program-head .section-eyebrow::before{ background:var(--indigo); }
+  .repeat-program-head .section-heading{ color:var(--white); }
+  .repeat-program-head .section-heading em{ color:var(--indigo); }
+  .repeat-program-head .section-lead{ color:rgba(255,255,255,.66); margin-bottom:1.75rem; }
+
+  .repeat-program-stats{ display:flex; flex-direction:column; gap:2rem; }
+  .repeat-stat{ min-width:0; }
+  .repeat-stat-num{
+    font-family:var(--font-display); font-weight:700; color:var(--white);
+    font-size:clamp(2.4rem,4.5vw,3.1rem); line-height:1; margin:0 0 .5rem; white-space:nowrap;
+  }
+  .repeat-stat-label{ font-size:.92rem; color:rgba(255,255,255,.6); margin:0; max-width:26ch; }
+  .repeat-stat-divider{ height:1px; background:rgba(255,255,255,.15); }
+
+  @media(min-width:860px){
+    .repeat-program-inner{ grid-template-columns:1.1fr 1fr; gap:4.5rem; }
+    .repeat-program-stats{ flex-direction:row; gap:2.5rem; }
+    .repeat-stat{ flex:1; }
+    .repeat-stat-divider{ width:1px; height:auto; align-self:stretch; }
+  }
 
   /* ---------- How It Works (video showcase, no slider) ---------- */
   .process-video{ background:var(--navy); padding:clamp(4.5rem,10vh,7rem) 0; }
@@ -961,6 +1141,16 @@
     .product-categories{ padding:2.75rem 0; }
     .style-teaser{ padding:2.75rem 0; }
     .style-grid-section{ padding:2.75rem 0; }
+    .audience-selector{ padding:2.75rem 0; }
+    .gallery-grid-section{ padding:2.75rem 0 3.5rem; }
+    .repeat-program{ padding:2.75rem 0; }
+    .audience-tabs-hint{
+      display:block; text-align:center; font-size:.75rem; letter-spacing:.06em;
+      text-transform:uppercase; color:rgba(8,30,68,.45); margin:.75rem 0 0;
+    }
+    .style-grid-body{ padding:.9rem; }
+    .style-grid-item h3{ font-size:1rem; }
+    .style-grid-item p{ font-size:.82rem; line-height:1.5; }
 
     /* Same fix, one level down: these section headings all had the same
        vh-based margin-bottom before their content/gallery — shrinking to a

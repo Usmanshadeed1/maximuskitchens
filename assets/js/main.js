@@ -131,6 +131,50 @@
     });
   }
 
+  if (!reduceMotion && document.querySelector('.style-grid-section')) {
+    gsap.from('.style-grid-head > *', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.style-grid-section', start:'top 78%' }
+    });
+    gsap.from('.style-grid-item', {
+      opacity:0, y:12, duration:.4, ease:'power2.out', stagger:.04,
+      scrollTrigger:{ trigger:'.style-grid', start:'top 85%' }
+    });
+  }
+
+  if (!reduceMotion && document.querySelector('.audience-selector')) {
+    gsap.from('.audience-head > *', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.audience-selector', start:'top 78%' }
+    });
+    gsap.from('.audience-tab', {
+      opacity:0, y:14, duration:.5, ease:'power3.out', stagger:.05,
+      scrollTrigger:{ trigger:'.audience-tabs', start:'top 85%' }
+    });
+  }
+
+  if (!reduceMotion && document.querySelector('.gallery-grid-section')) {
+    gsap.from('.gallery-filter', {
+      opacity:0, y:12, duration:.5, ease:'power2.out', stagger:.03,
+      scrollTrigger:{ trigger:'.gallery-filters', start:'top 85%' }
+    });
+    gsap.from('.gallery-item', {
+      opacity:0, y:20, duration:.5, ease:'power2.out', stagger:.04,
+      scrollTrigger:{ trigger:'.gallery-grid', start:'top 88%' }
+    });
+  }
+
+  if (!reduceMotion && document.querySelector('.repeat-program')) {
+    gsap.from('.repeat-program-head > *', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.repeat-program', start:'top 78%' }
+    });
+    gsap.from('.repeat-stat', {
+      opacity:0, y:20, duration:.6, ease:'power3.out', stagger:.12,
+      scrollTrigger:{ trigger:'.repeat-program-stats', start:'top 82%' }
+    });
+  }
+
   if (!reduceMotion && document.querySelector('.contact-faq')) {
     gsap.from('.contact-faq .section-eyebrow, .contact-faq .section-heading', {
       opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
@@ -350,6 +394,97 @@
       }
       quoteForm.querySelector('.form-success').hidden = false;
       quoteForm.querySelectorAll('input, textarea').forEach(field => { field.value = ''; });
+    });
+  }
+
+  // Gallery — filter pills toggle which grid items show
+  const galleryFilters = document.querySelectorAll('.gallery-filter');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  galleryFilters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      galleryFilters.forEach(b => b.classList.toggle('is-active', b === btn));
+      const filter = btn.getAttribute('data-filter');
+      galleryItems.forEach(item => {
+        const match = filter === 'all' || item.getAttribute('data-category') === filter;
+        item.style.display = match ? '' : 'none';
+      });
+    });
+  });
+
+  // Gallery lightbox — clicking a grid image opens a Swiper gallery scoped
+  // to ONLY that image's style (not the full 22-image set), built fresh
+  // from the grid each time so there's a single source of truth for the
+  // image list — no separate hardcoded slide markup to keep in sync.
+  const lightbox = document.getElementById('lightbox');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxWrapper = document.querySelector('.lightbox-swiper .swiper-wrapper');
+  if (lightbox && galleryItems.length && lightboxWrapper) {
+    let gallerySwiper;
+
+    function openLightbox(clickedItem){
+      const category = clickedItem.getAttribute('data-category');
+      const categoryItems = [...galleryItems].filter(item => item.getAttribute('data-category') === category);
+      const startIndex = categoryItems.indexOf(clickedItem);
+
+      lightboxWrapper.innerHTML = categoryItems.map(item => {
+        const img = item.querySelector('img');
+        return `<div class="swiper-slide"><img src="${img.getAttribute('src')}" alt="${img.getAttribute('alt')}"></div>`;
+      }).join('');
+
+      if (gallerySwiper) gallerySwiper.destroy(true, true);
+      if (window.Swiper) {
+        gallerySwiper = new Swiper('.lightbox-swiper', {
+          loop: categoryItems.length > 2,
+          initialSlide: startIndex,
+          navigation:{ nextEl:'.lightbox-next', prevEl:'.lightbox-prev' },
+          keyboard:{ enabled:true }
+        });
+      }
+
+      if (lightboxCaption) {
+        const labelEl = clickedItem.querySelector('.gallery-item-label');
+        lightboxCaption.textContent = labelEl ? labelEl.textContent : '';
+      }
+
+      lightbox.hidden = false;
+      void lightbox.offsetWidth;
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('drawer-open');
+      lightboxClose.focus();
+    }
+
+    function closeLightbox(){
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('drawer-open');
+      window.setTimeout(() => { lightbox.hidden = true; }, 350);
+    }
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => openLightbox(item));
+    });
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+    });
+  }
+
+  // Audience selector (Who We Serve) — click a tab, swap the visible panel
+  const audienceTabs = document.querySelectorAll('.audience-tab');
+  const audiencePanels = document.querySelectorAll('.audience-panel');
+  if (audienceTabs.length) {
+    audienceTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-target');
+        audienceTabs.forEach(t => {
+          t.classList.toggle('is-active', t === tab);
+          t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+        });
+        audiencePanels.forEach(p => p.classList.toggle('is-active', p.getAttribute('data-panel') === target));
+      });
     });
   }
 
