@@ -9,7 +9,7 @@
 - **Location**: New Jersey, USA — **Service area**: Nationwide USA
 - **Experience**: 20 years in the industry
 - **Phone**: +1 917-282-1854
-- **Email**: maximuskitchensnj@gmail.com
+- **Email**: maximuskitchens1@gmail.com
 - **Products**: RTA (Ready-to-Assemble) Cabinets, Pre-Assembled Cabinets, other popular cabinet styles
 - **Door styles**: Shaker, Raised Panel, Inset, Slab, Transitional, Modern, Traditional
 - **Construction**: Solid wood cabinet doors, 1/2" plywood boxes
@@ -82,6 +82,28 @@ Editorial/magazine style. Full-bleed hero photography, split-screen sections (im
 
 ## 8. Process
 
-- Single concept, single file — `index.html` is both the working source and the deployed file, no copies to keep in sync
-- Refine **one section at a time**; content written fresh (SEO copywriter voice) using only facts from §1 — user reviews/edits each section as we go
-- Git pushes/deploys are handled by the user themselves via their editor extension — do not push unless explicitly asked
+- `index.html` (the homepage) is done and **not being changed** — it stays a single long-scroll page with its own condensed Door Styles / Who We Serve / FAQ / Contact sections.
+- The site is now expanding into a **real multi-page site**. Every other page is a separate static HTML file at the project root, sharing `assets/css/style.css` and `assets/js/main.js` (extend these shared files rather than duplicating CSS/JS per page, unless a page needs something truly page-specific).
+- Build **one page at a time, one section at a time within it** — same working style as the homepage build.
+- Content per section written fresh (SEO copywriter voice) using only facts from §1 — user reviews/edits each section as we go.
+- Git pushes/deploys are handled by the user themselves via their editor extension — do not push unless explicitly asked.
+
+## 9. Multi-Page Site Map
+
+Header nav (6 links, logo = Home) + footer nav (adds 2 more not in header):
+
+| Page | File | In nav | Status |
+|---|---|---|---|
+| Home | `index.html` | header + footer | ✅ Done |
+| Contact / Get a Quote | `contact.html` | header + footer | ⬜ Next up |
+| Products | `products.html` | header + footer | ⬜ Planned |
+| Door Styles | `door-styles.html` | header + footer | ⬜ Planned |
+| Who We Serve | `who-we-serve.html` | header + footer | ⬜ Planned |
+| Gallery | `gallery.html` | header + footer | ⬜ Planned |
+| About | `about.html` | header + footer | ⬜ Planned |
+| How It Works | `how-it-works.html` | footer only | ⬜ Planned |
+| FAQ | `faq.html` | footer only | ⬜ Planned |
+
+**Build order** (agreed): Contact → Products → Door Styles → Who We Serve → Gallery → About → (How It Works, FAQ as time allows). Contact is first because every CTA site-wide already links to `contact.html` — building it first removes the only 404 currently reachable from the live site.
+
+**Per-page checklist**: reuse the homepage's design language exactly (navy/indigo/warm-white, Manrope/Inter, `.container` max-width pattern, GSAP scroll-reveal, card/section patterns already validated) — these are new pages, not a new design system. Each new page needs the same `<header>` + mobile drawer markup as `index.html`, and its own hero/intro section establishing what the page is before going into detail sections.

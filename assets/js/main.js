@@ -49,6 +49,103 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Page banner entrance (inner pages — harmless no-op on pages without one)
+  if (!reduceMotion && document.querySelector('.page-banner')) {
+    gsap.timeline({ defaults:{ ease:'power3.out' } })
+      .from('.breadcrumb', { opacity:0, y:12, duration:.6 })
+      .from('.page-banner-title', { opacity:0, y:22, duration:.8 }, '-=.35')
+      .from('.page-banner-lead', { opacity:0, y:16, duration:.7 }, '-=.5');
+  }
+
+  if (!reduceMotion && document.querySelector('.contact-trust')) {
+    gsap.from('.contact-trust-item', {
+      opacity:0, y:18, duration:.6, ease:'power3.out', stagger:.1,
+      scrollTrigger:{ trigger:'.contact-trust', start:'top 88%' }
+    });
+  }
+
+  if (!reduceMotion && document.querySelector('.contact-main')) {
+    gsap.from('.contact-main-info > *', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.contact-main', start:'top 80%' }
+    });
+    gsap.from('.contact-main-form', {
+      opacity:0, y:26, duration:.7, ease:'power3.out',
+      scrollTrigger:{ trigger:'.contact-main', start:'top 80%' }
+    });
+  }
+
+  if (!reduceMotion && document.querySelector('.why-us') && !document.querySelector('.hero-slide')) {
+    gsap.from('.why-us .section-eyebrow, .why-us .section-heading, .why-us .section-lead', {
+      opacity:0, y:24, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.why-us', start:'top 75%' }
+    });
+    gsap.from('.why-us-points li', {
+      opacity:0, y:16, duration:.5, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.why-us-points', start:'top 85%' }
+    });
+    gsap.from('.why-us .btn', {
+      opacity:0, y:16, duration:.6, ease:'power3.out',
+      scrollTrigger:{ trigger:'.why-us .btn', start:'top 90%' }
+    });
+    gsap.to('.why-us-media img', {
+      yPercent:10, ease:'none',
+      scrollTrigger:{ trigger:'.why-us', start:'top bottom', end:'bottom top', scrub:true }
+    });
+  }
+
+  if (!reduceMotion && document.querySelector('.contact-cta') && !document.querySelector('.hero-slide')) {
+    gsap.from('.contact-cta-info > *', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.contact-cta', start:'top 78%' }
+    });
+    gsap.from('.contact-cta-form', {
+      opacity:0, y:28, duration:.7, ease:'power3.out',
+      scrollTrigger:{ trigger:'.contact-cta', start:'top 78%' }
+    });
+  }
+
+  if (!reduceMotion && document.querySelector('.product-categories')) {
+    gsap.from('.product-categories .products-index, .product-categories .products-title, .product-categories .products-lead', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.product-categories', start:'top 78%' }
+    });
+    gsap.from('.product-cat-card', {
+      opacity:0, y:24, duration:.7, ease:'power3.out', stagger:.12,
+      scrollTrigger:{ trigger:'.product-cat-grid', start:'top 82%' }
+    });
+  }
+
+  if (!reduceMotion && document.querySelector('.style-teaser')) {
+    gsap.from('.style-teaser-head > *', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.style-teaser', start:'top 78%' }
+    });
+    gsap.from('.style-teaser-item', {
+      opacity:0, y:20, duration:.6, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.style-teaser-grid', start:'top 85%' }
+    });
+    gsap.from('.style-teaser-cta', {
+      opacity:0, y:16, duration:.6, ease:'power3.out',
+      scrollTrigger:{ trigger:'.style-teaser-cta', start:'top 92%' }
+    });
+  }
+
+  if (!reduceMotion && document.querySelector('.contact-faq')) {
+    gsap.from('.contact-faq .section-eyebrow, .contact-faq .section-heading', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.contact-faq', start:'top 78%' }
+    });
+    gsap.from('.contact-faq .faq-item', {
+      opacity:0, y:16, duration:.5, ease:'power3.out', stagger:.06,
+      scrollTrigger:{ trigger:'.contact-faq .faq-list', start:'top 85%' }
+    });
+    gsap.from('.contact-faq .faq-media', {
+      opacity:0, scale:.96, duration:.8, ease:'power3.out',
+      scrollTrigger:{ trigger:'.contact-faq', start:'top 75%' }
+    });
+  }
+
   // Hero slideshow — simple crossfade: old slide fades out while the new
   // one fades in at the same time (plain CSS opacity transition, no
   // z-index juggling or load-timing logic needed since all 5 images
@@ -90,7 +187,7 @@
     });
   });
 
-  if (!reduceMotion) {
+  if (!reduceMotion && document.querySelector('.hero-slide')) {
     // Hero entrance
     gsap.timeline({ defaults:{ ease:'power3.out' } })
       .from('.hero-eyebrow', { opacity:0, y:16, duration:.7, delay:.2 })
@@ -191,7 +288,7 @@
     });
   }
 
-  if (!reduceMotion) {
+  if (!reduceMotion && document.querySelector('.hero-slide')) {
     gsap.from('.door-styles-head > *', {
       opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
       scrollTrigger:{ trigger:'.door-styles', start:'top 78%' }
