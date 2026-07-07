@@ -75,6 +75,17 @@
     });
   }
 
+  if (!reduceMotion && document.querySelector('.about-process')) {
+    gsap.from('.about-process-head > *', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.about-process', start:'top 78%' }
+    });
+    gsap.from('.about-process-step', {
+      opacity:0, y:24, duration:.6, ease:'power3.out', stagger:.12,
+      scrollTrigger:{ trigger:'.about-process-steps', start:'top 82%' }
+    });
+  }
+
   if (!reduceMotion && document.querySelector('.why-us') && !document.querySelector('.hero-slide')) {
     gsap.from('.why-us .section-eyebrow, .why-us .section-heading, .why-us .section-lead', {
       opacity:0, y:24, duration:.7, ease:'power3.out', stagger:.08,
@@ -88,7 +99,7 @@
       opacity:0, y:16, duration:.6, ease:'power3.out',
       scrollTrigger:{ trigger:'.why-us .btn', start:'top 90%' }
     });
-    gsap.to('.why-us-media img', {
+    gsap.to('.why-us-media img, .why-us-media video', {
       yPercent:10, ease:'none',
       scrollTrigger:{ trigger:'.why-us', start:'top bottom', end:'bottom top', scrub:true }
     });
@@ -164,6 +175,17 @@
     });
   }
 
+  if (!reduceMotion && document.querySelector('.about-story')) {
+    gsap.from('.about-story-inner .section-eyebrow, .about-story-inner .section-heading, .about-story-inner .section-lead', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.about-story', start:'top 78%' }
+    });
+    gsap.from('.about-story-stat', {
+      opacity:0, y:18, duration:.6, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.about-story-stats', start:'top 88%' }
+    });
+  }
+
   if (!reduceMotion && document.querySelector('.repeat-program')) {
     gsap.from('.repeat-program-head > *', {
       opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
@@ -172,6 +194,21 @@
     gsap.from('.repeat-stat', {
       opacity:0, y:20, duration:.6, ease:'power3.out', stagger:.12,
       scrollTrigger:{ trigger:'.repeat-program-stats', start:'top 82%' }
+    });
+  }
+
+  if (!reduceMotion && document.querySelector('.faq') && !document.querySelector('.hero-slide')) {
+    gsap.from('.faq .section-eyebrow, .faq .section-heading', {
+      opacity:0, y:22, duration:.7, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:'.faq', start:'top 78%' }
+    });
+    gsap.from('.faq .faq-item', {
+      opacity:0, y:16, duration:.5, ease:'power3.out', stagger:.06,
+      scrollTrigger:{ trigger:'.faq .faq-list', start:'top 85%' }
+    });
+    gsap.from('.faq .faq-media', {
+      opacity:0, scale:.96, duration:.8, ease:'power3.out',
+      scrollTrigger:{ trigger:'.faq', start:'top 75%' }
     });
   }
 
@@ -554,6 +591,12 @@
     processVideo.removeAttribute('autoplay');
     processVideo.pause();
     processVideo.setAttribute('controls', '');
+  }
+  const whyUsVideo = document.querySelector('.why-us-media video');
+  if (whyUsVideo && reduceMotion) {
+    whyUsVideo.removeAttribute('autoplay');
+    whyUsVideo.pause();
+    whyUsVideo.setAttribute('controls', '');
   }
   const faqVideo = document.querySelector('.faq-media video');
   if (faqVideo && reduceMotion) {
